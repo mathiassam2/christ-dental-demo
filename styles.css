@@ -154,6 +154,10 @@ html {
     padding: 1.5rem;
     height: 100%;
     border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, box-shadow;
 }
 
 .service-category h3 {
