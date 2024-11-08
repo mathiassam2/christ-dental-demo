@@ -412,3 +412,34 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTime = now;
     }, { passive: false });
 });
+
+// Simplified Review Carousel
+document.addEventListener('DOMContentLoaded', function() {
+    const reviews = document.querySelectorAll('.review');
+    const progressBar = document.querySelector('.review-progress-bar');
+    let currentReview = 0;
+    const intervalTime = 5000; // 5 seconds
+    
+    function showNextReview() {
+        reviews[currentReview].classList.remove('active');
+        currentReview = (currentReview + 1) % reviews.length;
+        reviews[currentReview].classList.add('active');
+        
+        // Reset and start progress bar
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+        
+        // Force reflow
+        progressBar.offsetHeight;
+        
+        progressBar.style.transition = `width ${intervalTime}ms linear`;
+        progressBar.style.width = '100%';
+    }
+
+    // Initial progress bar
+    progressBar.style.transition = `width ${intervalTime}ms linear`;
+    progressBar.style.width = '100%';
+    
+    // Set interval for review changes
+    setInterval(showNextReview, intervalTime);
+});
