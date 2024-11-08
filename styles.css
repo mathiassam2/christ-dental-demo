@@ -1064,3 +1064,22 @@ section.services-section {
         width: 100%;
     }
 }
+
+/* Add these styles to remove focus outline/border */
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus,
+.nav-link:focus,
+.nav-link:active,
+.btn-close:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Optional: If you want to keep accessibility but hide the visual outline */
+.navbar-toggler:focus-visible,
+.nav-link:focus-visible {
+    outline: 2px solid #ffb5b9;
+    outline-offset: 2px;
+}
