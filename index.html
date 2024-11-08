@@ -119,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="position-relative animate-up delay-2">
+                    <div class="position-relative animate-up delay-2 pb-5">
                         <!-- Background shapes -->
                         <div class="position-absolute end-0 top-0 bg-shape bg-shape-1"></div>
                         <div class="position-absolute end-0 top-0 bg-shape bg-shape-2"></div>
@@ -154,8 +154,8 @@
             <div class="row g-4">
                 <!-- Dental Exams -->
                 <div class="col-md-4 scroll-fade">
-                    <div class="service-card">
-                        <div class="service-content">
+                    <div class="service-card d-flex flex-column">
+                        <div class="service-content flex-grow-1">
                             <h3 class="h4 text-primary mb-3">Dental Exams</h3>
                             <p class="text-secondary mb-4">Routine dental exams are essential to maintain good oral health. They include a thorough examination of the teeth, gums, and mouth to check for any signs of tooth decay, gum disease, or other oral health problems.</p>
                         </div>
@@ -167,9 +167,11 @@
 
                 <!-- Teeth Cleaning -->
                 <div class="col-md-4 scroll-fade">
-                    <div class="service-card">
-                        <h3 class="h4 text-primary mb-3">Teeth Cleaning</h3>
-                        <p class="text-secondary mb-4">Teeth cleaning is a preventative dental treatment that removes plaque and tartar from the teeth and gum line. Regular teeth cleaning can help prevent cavities, gum disease, and other dental problems.</p>
+                    <div class="service-card d-flex flex-column">
+                        <div class="service-content flex-grow-1">
+                            <h3 class="h4 text-primary mb-3">Teeth Cleaning</h3>
+                            <p class="text-secondary mb-4">Teeth cleaning is a preventative dental treatment that removes plaque and tartar from the teeth and gum line. Regular teeth cleaning can help prevent cavities, gum disease, and other dental problems.</p>
+                        </div>
                         <div class="service-image-container">
                             <img src="assets/images/teeth-cleaning.jpg" alt="Teeth Cleaning">
                         </div>
@@ -178,9 +180,11 @@
 
                 <!-- Fillings -->
                 <div class="col-md-4 scroll-fade">
-                    <div class="service-card">
-                        <h3 class="h4 text-primary mb-3">Fillings</h3>
-                        <p class="text-secondary mb-4">Dental fillings are used to repair teeth that have been damaged by decay or trauma. We offer various filling materials including composite resin, porcelain, or gold to restore your teeth.</p>
+                    <div class="service-card d-flex flex-column">
+                        <div class="service-content flex-grow-1">
+                            <h3 class="h4 text-primary mb-3">Fillings</h3>
+                            <p class="text-secondary mb-4">Dental fillings are used to repair teeth that have been damaged by decay or trauma. We offer various filling materials including composite resin, porcelain, or gold to restore your teeth.</p>
+                        </div>
                         <div class="service-image-container">
                             <img src="assets/images/fillings.jpg" alt="Dental Fillings">
                         </div>
@@ -207,8 +211,17 @@
 
     <section id="policy" class="container-fluid px-5 py-5 min-vh-100" style="background-color: #fff0f1;">
         <div class="container-xxl mx-auto">
-            <h2 class="display-4 fw-bold mb-5 scroll-fade">Our Policy</h2>
-            
+            <div class="mb-5 position-relative">
+                <div>
+                    <p class="text-primary mb-2 fw-bold">OUR POLICY</p>
+                    <h2 class="display-4 fw-bold mb-0">Committed to your care,<br>transparent in our practice</h2>
+                </div>
+                <a href="policies.html" class="btn btn-lg px-4 py-2 fw-bold d-inline-flex align-items-center gap-2 schedule-btn services-more-btn">
+                    More about Policies
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
             <!-- Introduction -->
             <div class="row mb-5 scroll-fade">
                 <div class="col-12">
@@ -262,13 +275,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- View All Policies Button -->
-            <div class="text-center scroll-fade">
-                <a href="policies.html" class="btn btn-lg px-4 py-2 fw-bold schedule-btn">
-                    View All Policies
-                </a>
             </div>
         </div>
     </section>
