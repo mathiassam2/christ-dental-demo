@@ -880,3 +880,134 @@ section.services-section {
         gap: 1rem;
     }
 }
+
+.team-member-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 3rem;
+}
+
+.team-member-image-container {
+    position: relative;
+    padding: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.background-shape {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: #fff0f1;
+    border-radius: 1rem;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: floatShape1 6s ease-in-out infinite;
+}
+
+.background-shape-2 {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: rgba(255, 181, 185, 0.3);
+    border-radius: 1rem;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    animation: floatShape2 8s ease-in-out infinite;
+}
+
+.team-member-image {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+@keyframes floatShape1 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-10px, -10px);
+    }
+}
+
+@keyframes floatShape2 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, 10px);
+    }
+}
+
+.team-member-content {
+    padding: 2rem;
+}
+
+@media (max-width: 991px) {
+    .team-member-card {
+        padding: 1.5rem;
+    }
+    
+    .team-member-content {
+        padding: 1.5rem 0 0 0;
+    }
+}
+
+.team-assistants-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+}
+
+.team-photo-container {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+}
+
+.team-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.assistant-profile {
+    padding: 1.5rem;
+    background: #fff0f1;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.assistant-profile:last-child {
+    margin-bottom: 0;
+}
+
+.assistant-profile h4 {
+    color: #333;
+}
+
+.assistant-profile p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+    .team-assistants-card {
+        padding: 1.5rem;
+    }
+
+    .team-photo-container {
+        min-height: 300px;
+        margin-bottom: 2rem;
+    }
+}
