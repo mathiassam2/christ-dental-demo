@@ -1,0 +1,327 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 76px; /* Adjust this value based on your navbar height */
+}
+
+html {
+    scroll-padding-top: 76px; /* Should match body padding-top */
+}
+
+/* Navbar Styles */
+.navbar-nav .nav-item {
+    padding: 0 20px;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+.nav-link.active {
+    color: #ffb5b9 !important;
+}
+
+.nav-link:hover {
+    color: #ffb5b9 !important;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffb5b9;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Animation Styles */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.scroll-fade.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-fade:nth-child(1) { transition-delay: 0.1s; }
+.scroll-fade:nth-child(2) { transition-delay: 0.3s; }
+.scroll-fade:nth-child(3) { transition-delay: 0.5s; }
+.scroll-fade:nth-child(4) { transition-delay: 0.7s; }
+
+/* Carousel Styles */
+.carousel-item img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    padding: 20px;
+    left: 50%;
+    right: auto;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: auto;
+    min-width: 80%;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.carousel-control-prev {
+    border-radius: 0 5px 5px 0;
+}
+
+.carousel-control-next {
+    border-radius: 5px 0 0 5px;
+}
+
+/* Facility Styles */
+.facility-image {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.facility-image:hover {
+    transform: scale(1.02);
+}
+
+/* Button Styles */
+.schedule-btn {
+    background-color: #ffb5b9;
+    color: #333333;
+    border: 2px solid #ffb5b9;
+    transition: all 0.3s ease;
+}
+
+.schedule-btn:hover {
+    background-color: transparent;
+    color: #ffb5b9;
+    border: 2px solid #ffb5b9;
+}
+
+/* Icon Styles */
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    background-color: #ffb5b9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-circle i {
+    font-size: 20px;
+    color: #333333;
+}
+
+/* Card Styles */
+.card {
+    transition: transform 0.3s ease;
+    background-color: white;
+    height: 100%;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Service Page Specific Styles */
+.service-category {
+    margin-bottom: 4rem;
+}
+
+.service-item {
+    background-color: white;
+    padding: 1.5rem;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.service-category h3 {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.service-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #ffb5b9;
+}
+
+/* Update background color for services page */
+section.services-section {
+    background-color: white !important;
+}
+
+/* Add hover effect for service items */
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Table Styles */
+.table {
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #ffb5b9;
+    color: #333333;
+}
+
+.table th {
+    font-weight: 600;
+    border: none;
+}
+
+.table td {
+    border-color: #f0f0f0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    .carousel-item .row > div {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    #facilitiesCarousel {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    #facilitiesCarousel .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #facilitiesCarousel .carousel-item {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #facilitiesCarousel .rounded-3,
+    #facilitiesCarousel .rounded-4 {
+        border-radius: 0 !important;
+    }
+    
+    .schedule-btn-container {
+        width: 100%;
+    }
+    
+    .schedule-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .service-category h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-item .row {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .carousel-item:first-child .row {
+        justify-content: space-between;
+    }
+    
+    .carousel-item:first-child .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+/* Add/Update Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+/* Shadow class that will be toggled */
+.navbar-shadow {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Treatment Fee Styles */
+.treatment-fee-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.treatment-fee-content p {
+    margin-bottom: 0;
+    color: #333333;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+    z-index: 1040;
+}
+
+.modal {
+    z-index: 1050;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 1rem;
+    border: none;
+}
+
+.modal-header {
+    padding: 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.btn-close {
+    opacity: 1;
+}
+
+.btn-close:hover {
+    opacity: 0.75;
+}
