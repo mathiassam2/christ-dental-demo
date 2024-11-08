@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/3c687cb8f7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home-page">
     <div id="navbar-placeholder"></div>
     
     <div id="home" class="container-fluid px-5 d-flex flex-column" style="min-height: calc(100vh - 76px); padding-top: 76px;">
@@ -65,75 +65,55 @@
             </div>
         </div>
     </div>
-    <section id="services" class="container-fluid px-5 py-5" style="background-color: #fff0f1;">
+    <section id="services" class="container-fluid px-5 py-5 min-vh-100" style="background-color: #fff0f1;">
         <div class="container-xxl mx-auto">
-            <h2 class="display-4 fw-bold mb-5 scroll-fade">Our Services</h2>
-            
-            <!-- Main Services Grid -->
-            <div class="row g-4 mb-5">
-                <!-- Diagnostic Services -->
-                <div class="col-md-4 scroll-fade">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-stethoscope"></i>
-                                </div>
-                                <h4 class="h5 mb-0">Diagnostic Services</h4>
-                            </div>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Consultation</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>X-ray Imaging</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>3D Scanning</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="mb-5 position-relative">
+                <div>
+                    <p class="text-primary mb-2 fw-bold">OUR SERVICES</p>
+                    <h2 class="display-4 fw-bold mb-0">We specialize in you,<br>whatever your specialty</h2>
                 </div>
-
-                <!-- Restorative Services -->
-                <div class="col-md-4 scroll-fade">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-tooth"></i>
-                                </div>
-                                <h4 class="h5 mb-0">Restorative Services</h4>
-                            </div>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Fillings</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Crowns and Bridges</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Aesthetic Treatment</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Specialized Treatments -->
-                <div class="col-md-4 scroll-fade">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-4">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h4 class="h5 mb-0">Specialized Treatments</h4>
-                            </div>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Orthodontics/Braces</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Implant Dentistry</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Oral Surgery</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add View All Services button -->
-            <div class="text-center scroll-fade">
-                <a href="services.html" class="btn btn-lg px-4 py-2 fw-bold schedule-btn">
-                    View All Services
+                <a href="services.html" class="btn btn-lg px-4 py-2 fw-bold d-inline-flex align-items-center gap-2 schedule-btn services-more-btn">
+                    More about Services
+                    <i class="fas fa-arrow-right"></i>
                 </a>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="row g-4">
+                <!-- Dental Exams -->
+                <div class="col-md-4 scroll-fade">
+                    <div class="service-card">
+                        <div class="service-content">
+                            <h3 class="h4 text-primary mb-3">Dental Exams</h3>
+                            <p class="text-secondary mb-4">Routine dental exams are essential to maintain good oral health. They include a thorough examination of the teeth, gums, and mouth to check for any signs of tooth decay, gum disease, or other oral health problems.</p>
+                        </div>
+                        <div class="service-image-container">
+                            <img src="assets/images/dental-exam.jpg" alt="Dental Examination">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teeth Cleaning -->
+                <div class="col-md-4 scroll-fade">
+                    <div class="service-card">
+                        <h3 class="h4 text-primary mb-3">Teeth Cleaning</h3>
+                        <p class="text-secondary mb-4">Teeth cleaning is a preventative dental treatment that removes plaque and tartar from the teeth and gum line. Regular teeth cleaning can help prevent cavities, gum disease, and other dental problems.</p>
+                        <div class="service-image-container">
+                            <img src="assets/images/teeth-cleaning.jpg" alt="Teeth Cleaning">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fillings -->
+                <div class="col-md-4 scroll-fade">
+                    <div class="service-card">
+                        <h3 class="h4 text-primary mb-3">Fillings</h3>
+                        <p class="text-secondary mb-4">Dental fillings are used to repair teeth that have been damaged by decay or trauma. We offer various filling materials including composite resin, porcelain, or gold to restore your teeth.</p>
+                        <div class="service-image-container">
+                            <img src="assets/images/fillings.jpg" alt="Dental Fillings">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -160,72 +140,63 @@
             <!-- Introduction -->
             <div class="row mb-5 scroll-fade">
                 <div class="col-12">
-                    <p class="lead">We invite you to kindly read our clinic policy before starting treatment with us. Please do not hesitate to approach our clinical staff /dentist(s) if you require any clarification or if you have any questions and/ comments. Should you not be satisfied with our responses, we will understand if you decide to seek treatment elsewhere.</p>
+                    <p class="lead">We invite you to kindly read our clinic policy before starting treatment with us. Our policies are designed to ensure the best possible care and experience for all our patients.</p>
                 </div>
             </div>
 
-            <!-- Policy Content -->
-            <div class="row g-5 scroll-fade">
-                <!-- Left Column -->
-                <div class="col-md-6">
-                    <div class="mb-5">
-                        <h3 class="h4 mb-4">Infection Control</h3>
-                        <p>We believe that infection control is important to prevent cross contamination of diseases from patient to patient. Therefore, we presoak all our instruments in disinfectant solution after wash and pouch them before we autoclave them. Instruments that cannot be autoclaved undergo cold sterilization procedure. We use disposable cups, bibs, saliva ejectors, needles and cartridges. New polishing brushes are issued to patients for scaling and polishing. The brushes are returned to patients after the treatment. Patients may bring their own brushes for future treatment.</p>
-                    </div>
-
-                    <div class="mb-5">
-                        <h3 class="h4 mb-4">Consent</h3>
-                        <p>We normally obtain a written consent for treatment from adult patients i.e. above 21 years of age and parents/ guardian of young patients i.e. below 21 years of age. Consent forms and contract are signed prior to complex treatment e.g. implant placement, any surgery and before orthodontic treatment/braces e.g. bonding up and removal of fixed appliances/braces.</p>
-                    </div>
-
-                    <div class="mb-5">
-                        <h3 class="h4 mb-4">General Procedures</h3>
-                        <h4 class="h5 mb-3">Cost</h4>
-                        <ul class="mb-4">
-                            <li>The patient can request for the estimated charges for a particular treatment.</li>
-                            <li>The patient can obtain information on the billing procedures.</li>
-                            <li>The patient can request for the details of billing for an entire series of follow-up treatments without additional costs being levied.</li>
-                        </ul>
-
-                        <h4 class="h5 mb-3">Treatment</h4>
-                        <ul>
-                            <li><strong>Restorative:</strong> The patient will get a free restoration of the same tooth if the restoration done by us dislodges / cracks/ debonds within three (3) months.</li>
-                            <li><strong>Prosthetic:</strong> The patient can have as many adjustments on the prosthesis/denture(s) done by us without additional charges within first three (3) months of issuance.</li>
-                            <li><strong>Orthodontics:</strong> If a retainer or removable appliance done by us is faulty or fractures within the first 3 months, we will repair/ replace it with a new one free of charge.</li>
-                        </ul>
+            <!-- Policy Highlights -->
+            <div class="row g-4 mb-5">
+                <!-- Infection Control -->
+                <div class="col-md-4 scroll-fade">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="icon-circle me-3">
+                                    <i class="fas fa-shield-virus"></i>
+                                </div>
+                                <h4 class="h5 mb-0">Infection Control</h4>
+                            </div>
+                            <p class="mb-0">We maintain strict sterilization protocols and use disposable materials to ensure your safety and prevent cross-contamination.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right Column -->
-                <div class="col-md-6">
-                    <div class="mb-5">
-                        <h3 class="h4 mb-4">Appointments</h3>
-                        <ul>
-                            <li>We expect patients to arrive at least 5 to 10 minutes before their appointment.</li>
-                            <li>We expect patients to wait even though they have made appointments.</li>
-                            <li>Walk-in patients are only attended to in emergencies.</li>
-                            <li>We prefer new patients to register before appointments.</li>
-                            <li>Please inform us of cancellations 1-2 working days in advance.</li>
-                            <li>RM20 fee for last-minute cancellations (within 24 hours).</li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-5">
-                        <h3 class="h4 mb-4">The Rights of the Patient</h3>
-                        <ul>
-                            <li>Right to be informed of medical condition and treatment plans.</li>
-                            <li>Right to be treated with dignity, respect and courtesy.</li>
-                            <li>Right to request and obtain treatment reports.</li>
-                            <li>Right to ask questions about fees or treatment.</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="h4 mb-4">Grievance Mechanism</h3>
-                        <p class="mb-4">We welcome any feedback or response from our patients either by meeting in-person, through the telephone, fax, sms or email. We will respond within two weeks depending on the urgency of the complaint. If any of our patients is still dissatisfied with the treatment in our clinic, please refer to our grievance mechanism guideline:</p>
-                        <img src="assets/images/GreivanceMech.jpg" alt="Grievance Mechanism" class="img-fluid rounded-3">
+                <!-- Appointments -->
+                <div class="col-md-4 scroll-fade">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="icon-circle me-3">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <h4 class="h5 mb-0">Appointments</h4>
+                            </div>
+                            <p class="mb-0">We value punctuality and proper scheduling to provide the best care. Please arrive 5-10 minutes before your appointment.</p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Patient Rights -->
+                <div class="col-md-4 scroll-fade">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="icon-circle me-3">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <h4 class="h5 mb-0">Patient Rights</h4>
+                            </div>
+                            <p class="mb-0">We respect your right to be informed, treated with dignity, and receive detailed information about your treatment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Policies Button -->
+            <div class="text-center scroll-fade">
+                <a href="policies.html" class="btn btn-lg px-4 py-2 fw-bold schedule-btn">
+                    View All Policies
+                </a>
             </div>
         </div>
     </section>

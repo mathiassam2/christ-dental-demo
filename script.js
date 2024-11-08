@@ -353,3 +353,62 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial check for page load
     toggleNavbarShadow();
 });
+
+// Refined scroll behavior
+document.addEventListener('DOMContentLoaded', function() {
+    // Only run on home page and desktop devices (width > 768px)
+    if (!document.body.classList.contains('home-page') || window.innerWidth <= 768) return;
+
+    const sections = document.querySelectorAll('#home, section');
+    let isScrolling = false;
+    let currentSection = 0;
+    let lastScrollTime = Date.now();
+    const scrollCooldown = 800;
+
+    // Get current section index
+    const getCurrentSection = () => {
+        let current = 0;
+        let minDistance = Infinity;
+        
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+            const distance = Math.abs(rect.top);
+            if (distance < minDistance) {
+                minDistance = distance;
+                current = index;
+            }
+        });
+        return current;
+    };
+
+    // Smooth scroll to section
+    const scrollToSection = (index) => {
+        if (index >= 0 && index < sections.length && !isScrolling) {
+            isScrolling = true;
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                isScrolling = false;
+            }, 800);
+        }
+    };
+
+    // Wheel event handler with improved detection
+    window.addEventListener('wheel', (e) => {
+        e.preventDefault();
+
+        const now = Date.now();
+        if (now - lastScrollTime < scrollCooldown || isScrolling) return;
+
+        currentSection = getCurrentSection();
+        
+        if (e.deltaY > 0 && currentSection < sections.length - 1) {
+            // Scroll down
+            scrollToSection(currentSection + 1);
+        } else if (e.deltaY < 0 && currentSection > 0) {
+            // Scroll up
+            scrollToSection(currentSection - 1);
+        }
+        
+        lastScrollTime = now;
+    }, { passive: false });
+});

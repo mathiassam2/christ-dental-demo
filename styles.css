@@ -7,6 +7,8 @@ body {
 
 html {
     scroll-padding-top: 76px; /* Should match body padding-top */
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
 }
 
 /* Navbar Styles */
@@ -274,11 +276,6 @@ section.services-section {
     transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
 }
 
-/* Shadow class that will be toggled */
-.navbar-shadow {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
 /* Treatment Fee Styles */
 .treatment-fee-content p {
     margin-bottom: 0;
@@ -484,6 +481,15 @@ section.services-section {
     animation: slideLeft 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
+/* Mobile animation for schedule button */
+@media (max-width: 768px) {
+    .animate-left {
+        transform: translateY(100px); /* Start from below */
+        animation: slideUp 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+}
+
+/* Keep existing animations */
 @keyframes slideLeft {
     0% {
         opacity: 0;
@@ -492,6 +498,17 @@ section.services-section {
     100% {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -513,4 +530,131 @@ section.services-section {
         opacity: 1;
         transform: none;
     }
+}
+
+/* Smooth Scroll Snap - Only for desktop */
+@media (min-width: 769px) {
+    body.home-page {
+        height: 100vh;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        scroll-padding-top: 76px;
+    }
+
+    body.home-page #home,
+    body.home-page section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        min-height: 100vh;
+        position: relative;
+    }
+}
+
+/* Default scroll behavior for mobile */
+@media (max-width: 768px) {
+    body.home-page {
+        height: auto;
+        overflow-y: auto;
+        scroll-snap-type: none;
+    }
+
+    body.home-page #home,
+    body.home-page section {
+        scroll-snap-align: none;
+        min-height: 100vh;
+    }
+}
+
+/* Policy Page Styles */
+.policy-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    height: 100%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.policy-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.policy-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.policy-list li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background-color: #ffb5b9;
+    border-radius: 50%;
+}
+
+.policy-card h3 {
+    color: #333;
+}
+
+/* Updated Service Section Styles */
+.service-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-content {
+    flex: 0 0 auto; /* Don't grow or shrink */
+}
+
+.service-image-container {
+    margin: 0 -2rem -2rem -2rem;
+    height: 300px; /* Fixed height */
+    position: relative;
+    overflow: hidden;
+}
+
+.service-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 0 1.5rem 1.5rem;
+}
+
+/* Remove hover animations */
+.service-card:hover,
+.service-card:hover .service-image-container img {
+    transform: none;
+}
+
+/* Update text colors to match your scheme */
+.text-primary {
+    color: #ffb5b9 !important;
+}
+
+.text-secondary {
+    color: #666666 !important;
+}
+
+/* Button hover effect */
+.schedule-btn:hover i {
+    transform: translateX(5px);
+}
+
+.schedule-btn i {
+    transition: transform 0.3s ease;
+}
+
+.services-more-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateY(50%); /* Adjust this value to fine-tune vertical position */
 }
