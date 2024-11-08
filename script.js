@@ -208,6 +208,10 @@ function initializeFacilities() {
     const carouselInner = document.querySelector(
         "#facilitiesCarousel .carousel-inner"
     );
+
+    // Check if carousel exists before proceeding
+    if (!carouselInner) return; // Exit if carousel doesn't exist on this page
+
     const modalContainer = document.body;
     const isMobile = window.innerWidth < 768;
     const itemsPerSlide = isMobile ? 1 : 3;
@@ -301,14 +305,17 @@ function initializeFacilities() {
     });
 }
 
-// Initialize facilities when DOM is loaded and handle resize
+// Initialize facilities only if needed
 document.addEventListener("DOMContentLoaded", () => {
-    initializeFacilities();
-
-    // Reinitialize on window resize
-    window.addEventListener("resize", () => {
+    const hasFacilities = document.querySelector("#facilitiesCarousel");
+    if (hasFacilities) {
         initializeFacilities();
-    });
+
+        // Reinitialize on window resize only if facilities exist
+        window.addEventListener("resize", () => {
+            initializeFacilities();
+        });
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -340,6 +347,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to toggle navbar shadow
     function toggleNavbarShadow() {
         const navbar = document.querySelector(".navbar");
+        if (!navbar) return; // Exit if navbar doesn't exist
+
         if (window.scrollY > 0) {
             navbar.classList.add("navbar-shadow");
         } else {
@@ -355,11 +364,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Refined scroll behavior
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Only run on home page and desktop devices (width > 768px)
-    if (!document.body.classList.contains('home-page') || window.innerWidth <= 768) return;
+    if (
+        !document.body.classList.contains("home-page") ||
+        window.innerWidth <= 768
+    )
+        return;
 
-    const sections = document.querySelectorAll('#home, section');
+    const sections = document.querySelectorAll("#home, section");
     let isScrolling = false;
     let currentSection = 0;
     let lastScrollTime = Date.now();
@@ -369,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const getCurrentSection = () => {
         let current = 0;
         let minDistance = Infinity;
-        
+
         sections.forEach((section, index) => {
             const rect = section.getBoundingClientRect();
             const distance = Math.abs(rect.top);
@@ -385,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollToSection = (index) => {
         if (index >= 0 && index < sections.length && !isScrolling) {
             isScrolling = true;
-            sections[index].scrollIntoView({ behavior: 'smooth' });
+            sections[index].scrollIntoView({ behavior: "smooth" });
             setTimeout(() => {
                 isScrolling = false;
             }, 800);
@@ -393,53 +406,57 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Wheel event handler with improved detection
-    window.addEventListener('wheel', (e) => {
-        e.preventDefault();
+    window.addEventListener(
+        "wheel",
+        (e) => {
+            e.preventDefault();
 
-        const now = Date.now();
-        if (now - lastScrollTime < scrollCooldown || isScrolling) return;
+            const now = Date.now();
+            if (now - lastScrollTime < scrollCooldown || isScrolling) return;
 
-        currentSection = getCurrentSection();
-        
-        if (e.deltaY > 0 && currentSection < sections.length - 1) {
-            // Scroll down
-            scrollToSection(currentSection + 1);
-        } else if (e.deltaY < 0 && currentSection > 0) {
-            // Scroll up
-            scrollToSection(currentSection - 1);
-        }
-        
-        lastScrollTime = now;
-    }, { passive: false });
+            currentSection = getCurrentSection();
+
+            if (e.deltaY > 0 && currentSection < sections.length - 1) {
+                // Scroll down
+                scrollToSection(currentSection + 1);
+            } else if (e.deltaY < 0 && currentSection > 0) {
+                // Scroll up
+                scrollToSection(currentSection - 1);
+            }
+
+            lastScrollTime = now;
+        },
+        { passive: false }
+    );
 });
 
 // Simplified Review Carousel
-document.addEventListener('DOMContentLoaded', function() {
-    const reviews = document.querySelectorAll('.review');
-    const progressBar = document.querySelector('.review-progress-bar');
+document.addEventListener("DOMContentLoaded", function () {
+    const reviews = document.querySelectorAll(".review");
+    const progressBar = document.querySelector(".review-progress-bar");
     let currentReview = 0;
     const intervalTime = 5000; // 5 seconds
-    
+
     function showNextReview() {
-        reviews[currentReview].classList.remove('active');
+        reviews[currentReview].classList.remove("active");
         currentReview = (currentReview + 1) % reviews.length;
-        reviews[currentReview].classList.add('active');
-        
+        reviews[currentReview].classList.add("active");
+
         // Reset and start progress bar
-        progressBar.style.transition = 'none';
-        progressBar.style.width = '0%';
-        
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0%";
+
         // Force reflow
         progressBar.offsetHeight;
-        
+
         progressBar.style.transition = `width ${intervalTime}ms linear`;
-        progressBar.style.width = '100%';
+        progressBar.style.width = "100%";
     }
 
     // Initial progress bar
     progressBar.style.transition = `width ${intervalTime}ms linear`;
-    progressBar.style.width = '100%';
-    
+    progressBar.style.width = "100%";
+
     // Set interval for review changes
     setInterval(showNextReview, intervalTime);
 });
