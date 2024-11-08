@@ -17,17 +17,15 @@
     <div id="navbar-placeholder"></div>
     
     <div id="home" class="container-fluid px-5 d-flex flex-column" style="min-height: calc(100vh - 76px); padding-top: 76px;">
-        <!-- Max-width container for larger screens -->
         <div class="container-xxl mx-auto h-100">
-            <!-- Content wrapper -->
             <div class="row h-100 align-items-center">
-                <!-- Hero Text Section -->
-                <div class="col-12 col-lg-6 d-flex flex-column gap-4">
-                    <h1 class="display-1 fw-bold">We Value Your Smile</h1>
-                    <p class="lead text-secondary">
-                        Step into a dental practice where your comfort comes first. Our gentle approach, modern facilities and equipment, and experienced team ensure a relaxing experience for every visit.
-                    </p>
-                    <div class="schedule-btn-container">
+                <div class="col-12 col-lg-6 d-flex flex-column gap-4 animate-down">
+                    <h1 class="display-2 fw-bold animate-down">
+                        Say <span class="text-primary">👋</span> Goodbye<br>
+                        to Dental Problems,<br>
+                        We Value Your Smile <span class="text-primary">✨</span>
+                    </h1>
+                    <div class="schedule-btn-container animate-left delay-2">
                         <a href="https://wa.me/60135644066?text=Hi,%20I'm%20interested%20in%20scheduling%20a%20dental%20appointment.%20Could%20you%20please%20help%20me%20with%20the%20available%20time%20slots?" 
                            target="_blank" 
                            rel="noopener noreferrer" 
@@ -40,14 +38,29 @@
                     </div>
                 </div>
                 
-                <!-- Background Image Section -->
-                <div class="col-12 col-lg-6 pt-5 pt-lg-0">
-                    <img 
-                        src="assets/images/Clinic-Backgroud-Image-1.jpg" 
-                        alt="Clinic Background" 
-                        class="w-100 rounded-4" 
-                        style="height: 100%; object-fit: cover;"
-                    >
+                <div class="col-12 col-lg-6 pt-5 pt-lg-0 position-relative">
+                    <div class="d-flex align-items-start justify-content-between mb-4 animate-down delay-1">
+                        <p class="lead text-secondary mb-0" style="max-width: 500px;">
+                            Our dental health services prioritize your oral well-being. Trust our experienced team to guide you on your journey to optimal dental health.
+                        </p>
+                        <div class="dental-icon-circle ms-4">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                    </div>
+                    <div class="position-relative animate-up delay-2">
+                        <!-- Background shapes -->
+                        <div class="position-absolute end-0 top-0 bg-shape bg-shape-1"></div>
+                        <div class="position-absolute end-0 top-0 bg-shape bg-shape-2"></div>
+                        <div class="position-absolute end-0 top-0 bg-shape bg-shape-3"></div>
+                        
+                        <!-- Image -->
+                        <img 
+                            src="assets\images\Clinic-Backgroud-Image-1.jpg" 
+                            alt="Happy Patient" 
+                            class="w-100 rounded-4 hero-image" 
+                            style="height: 400px; object-fit: cover;"
+                        >
+                    </div>
                 </div>
             </div>
         </div>
