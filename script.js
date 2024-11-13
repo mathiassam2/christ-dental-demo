@@ -1,10 +1,12 @@
-// Add this at the beginning of your script.js
 document.addEventListener("DOMContentLoaded", function () {
     // Load navbar
     fetch("navbar.html")
         .then((response) => response.text())
         .then((data) => {
             document.getElementById("navbar-placeholder").innerHTML = data;
+
+            // Initialize mobile navigation AFTER navbar is loaded
+            initializeMobileNav();
 
             // Update active state based on current page
             const currentPage =
@@ -18,6 +20,41 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+
+    // Move mobile nav initialization to a separate function
+    function initializeMobileNav() {
+        const hamburgerInput = document.querySelector("#hamburger-input");
+        const mobileNav = document.querySelector(".mobile-nav");
+
+        if (hamburgerInput && mobileNav) {
+            console.log("Mobile nav elements found"); // Debug log
+
+            hamburgerInput.addEventListener("change", function (e) {
+                console.log("Hamburger clicked, checked:", this.checked); // Debug log
+                if (this.checked) {
+                    mobileNav.classList.add("active");
+                    document.body.style.overflow = "hidden";
+                } else {
+                    mobileNav.classList.remove("active");
+                    document.body.style.overflow = "";
+                }
+            });
+
+            // Close menu when clicking links
+            const mobileNavLinks = document.querySelectorAll(
+                ".mobile-nav-links a"
+            );
+            mobileNavLinks.forEach((link) => {
+                link.addEventListener("click", () => {
+                    hamburgerInput.checked = false;
+                    mobileNav.classList.remove("active");
+                    document.body.style.overflow = "";
+                });
+            });
+        } else {
+            console.log("Mobile nav elements not found"); // Debug log
+        }
+    }
 });
 
 // Smooth scrolling for navigation links
@@ -434,29 +471,55 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const reviews = document.querySelectorAll(".review");
     const progressBar = document.querySelector(".review-progress-bar");
-    let currentReview = 0;
-    const intervalTime = 5000; // 5 seconds
 
-    function showNextReview() {
-        reviews[currentReview].classList.remove("active");
-        currentReview = (currentReview + 1) % reviews.length;
-        reviews[currentReview].classList.add("active");
+    // Only initialize the review carousel if the elements exist
+    if (reviews.length && progressBar) {
+        let currentReview = 0;
+        const intervalTime = 5000; // 5 seconds
 
-        // Reset and start progress bar
-        progressBar.style.transition = "none";
-        progressBar.style.width = "0%";
+        function showNextReview() {
+            reviews[currentReview].classList.remove("active");
+            currentReview = (currentReview + 1) % reviews.length;
+            reviews[currentReview].classList.add("active");
 
-        // Force reflow
-        progressBar.offsetHeight;
+            // Reset and start progress bar
+            progressBar.style.transition = "none";
+            progressBar.style.width = "0%";
 
+            // Force reflow
+            progressBar.offsetHeight;
+
+            progressBar.style.transition = `width ${intervalTime}ms linear`;
+            progressBar.style.width = "100%";
+        }
+
+        // Initial progress bar
         progressBar.style.transition = `width ${intervalTime}ms linear`;
         progressBar.style.width = "100%";
+
+        // Set interval for review changes
+        setInterval(showNextReview, intervalTime);
     }
+});
 
-    // Initial progress bar
-    progressBar.style.transition = `width ${intervalTime}ms linear`;
-    progressBar.style.width = "100%";
+// Add this after your existing DOMContentLoaded event listener
+document.addEventListener("DOMContentLoaded", function () {
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("fade-in");
+                }
+            });
+        },
+        {
+            threshold: 0.1,
+        }
+    );
 
-    // Set interval for review changes
-    setInterval(showNextReview, intervalTime);
+    // Observe all elements with team-fade class
+    document.querySelectorAll(".team-fade").forEach((element) => {
+        observer.observe(element);
+    });
 });

@@ -1,37 +1,45 @@
 <nav class="navbar navbar-expand-lg bg-white sticky-top" style="z-index: 1000; top: 0; position: fixed; width: 100%;">
     <div class="container-fluid px-5">
-        <!-- Logo (will be centered on mobile) -->
-        <a class="navbar-brand mx-auto" href="index.html" style="min-width: 130px;">
+        <!-- Logo (aligned left) -->
+        <a class="navbar-brand" href="index.html">
             <img src="assets/logo/logo2.png" alt="Logo" class="d-inline-block align-text-top img-fluid" style="max-width: 130px;">
         </a>
         
-        <!-- Hamburger menu for mobile -->
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- Custom hamburger menu for mobile -->
+        <label class="hamburger d-lg-none">
+            <input type="checkbox" id="hamburger-input"/>
+            <svg viewBox="0 0 32 32">
+                <path d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" class="line line-top-bottom"></path>
+                <path d="M7 16 27 16" class="line"></path>
+            </svg>
+        </label>
 
-        <!-- Off-canvas navigation -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ourteam.html">Our Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="policies.html">Our Policy</a>
-                    </li>
-                </ul>
-            </div>
+        <!-- Desktop navigation -->
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ourteam.html">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="policies.html">Our Policy</a>
+                </li>
+            </ul>
         </div>
+    </div>
+    
+    <!-- Move mobile navigation outside container-fluid -->
+    <div class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="ourteam.html">Our Team</a></li>
+            <li><a href="policies.html">Our Policy</a></li>
+        </ul>
     </div>
 </nav> 
