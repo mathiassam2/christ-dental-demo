@@ -1004,7 +1004,7 @@ section.services-section {
 
 @media (max-width: 991px) {
     .team-assistants-card {
-        padding: 1.5rem;
+        padding: 0;
     }
 
     .team-photo-container {
