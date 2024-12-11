@@ -523,13 +523,3 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(element);
     });
 });
-
-// Add this to your existing DOMContentLoaded event listener
-document.addEventListener("DOMContentLoaded", function() {
-    // Handle review expansion
-    document.querySelectorAll('.review p.lead').forEach(review => {
-        review.addEventListener('click', function() {
-            this.classList.toggle('expanded');
-        });
-    });
-});

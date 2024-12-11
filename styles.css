@@ -662,7 +662,7 @@ section.services-section {
 .review-container {
     max-width: 500px;
     position: relative;
-    height: auto;  /* Change from fixed height */
+    height: auto;
     min-height: 200px;
     overflow: hidden;
 }
@@ -1342,99 +1342,14 @@ section {
     }
 
     /* Ensure parent containers don't clip the full-width effect */
-    .container, .container-fluid {
+    /* .container, .container-fluid {
         overflow-x: hidden;
-    }
+    } */
 
     /* Ensure body and html don't create scrollbars */
     html, body {
         overflow-x: hidden;
         width: 100%;
         position: relative;
-    }
-}
-
-/* Review Container Updates */
-.review-container {
-    max-width: 500px;
-    position: relative;
-    height: auto;  /* Change from fixed height */
-    min-height: 200px;
-    overflow: hidden;
-}
-
-.reviews .review {
-    opacity: 0;
-    position: absolute;
-    transition: opacity 0.5s ease-in-out;
-    width: 100%;
-}
-
-.reviews .review.active {
-    opacity: 1;
-    position: relative;
-}
-
-.review p.lead {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    -webkit-line-clamp: 3;
-    -moz-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    box-orient: vertical;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-}
-
-.review p.lead.expanded {
-    -webkit-line-clamp: none;
-    -moz-line-clamp: none;
-    line-clamp: none;
-}
-
-/* Add "Read more" indicator */
-.review p.lead:not(.expanded)::after {
-    content: "... Read more";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: white;
-    padding-left: 4px;
-    color: #ffb5b9;
-}
-
-/* Mobile-specific fixes */
-@media (max-width: 768px) {
-    .position-relative.animate-up.delay-2 {
-        padding-bottom: 0 !important;
-        margin-bottom: 2rem;  /* Add space below image */
-    }
-
-    .hero-image {
-        height: 300px !important;
-        width: 100%;
-        object-fit: cover;
-        margin-bottom: 0;  /* Remove bottom margin */
-    }
-
-    /* Prevent section scrolling */
-    #home, section {
-        overflow: hidden !important;
-        height: auto !important;
-    }
-
-    /* Stack reviews and ratings properly */
-    .d-flex.align-items-start.justify-content-between {
-        flex-direction: column-reverse;
-        gap: 1.5rem;
-    }
-
-    .review-container {
-        width: 100%;
-        margin-bottom: 1rem;
     }
 }
