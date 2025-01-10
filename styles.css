@@ -1206,12 +1206,27 @@ html, body {
     }
 }
 
+@media (max-width: 991px) {
+    #home {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    #home .col-12.col-lg-6:last-child {
+        padding: 0;
+        margin-top: 2rem;
+    }
+    
+    #home .position-relative img {
+        border-radius: 0 !important;
+    }
+}
+
 /* Update navbar logo size for mobile */
 @media (max-width: 768px) {
-    .navbar-brand img {
-        max-width: 100px !important; /* Smaller logo for mobile */
+    .team-member-image {
+        object-fit: contain !important;
     }
-
     .container-fluid {
         padding-left: 15px !important;
         padding-right: 15px !important;
