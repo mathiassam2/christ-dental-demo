@@ -314,6 +314,62 @@ section.services-section {
     opacity: 0.75;
 }
 
+.testimonial-pill {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.testimonial-pill.active {
+    background: none !important;
+    opacity: 1;
+}
+
+.testimonial-pill:hover {
+    opacity: 0.8;
+}
+
+.background-shape {
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    border-radius: 50%;
+    top: -20px;
+    right: -20px;
+    z-index: 0;
+}
+
+.testimonial-pill {
+    background: none !important;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 50px !important;
+    color: #666 !important;
+    transition: all 0.3s ease;
+}
+
+.testimonial-pill.active {
+    background: white !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.testimonial-pill:hover:not(.active) {
+    background: rgba(255,255,255,0.5) !important;
+}
+
+.testimonial-pill span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.tab-pane.fade {
+    transition: opacity 0.3s ease-in-out;
+}
+
 /* Hero Section Styles */
 .text-primary {
     color: #ff9da2 !important;
