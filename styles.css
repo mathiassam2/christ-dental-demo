@@ -3,13 +3,22 @@ body {
     font-family: 'Roboto', sans-serif;
     padding-top: 76px; /* Adjust this value based on your navbar height */
     opacity: 1;
-    transition: scroll-behavior 0.3s ease;
 }
 
 html {
-    scroll-padding-top: 76px; /* Should match body padding-top */
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
+}
+
+/* Add this for Safari support */
+body {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: If you want to disable smooth scrolling for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 /* Navbar Styles */
@@ -620,14 +629,10 @@ section.services-section {
     body.home-page {
         height: 100vh;
         overflow-y: auto;
-        scroll-snap-type: y mandatory;
-        scroll-padding-top: 76px;
     }
 
     body.home-page #home,
     body.home-page section {
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
         min-height: 100vh;
         position: relative;
     }
@@ -638,12 +643,10 @@ section.services-section {
     body.home-page {
         height: auto;
         overflow-y: auto;
-        scroll-snap-type: none;
     }
 
     body.home-page #home,
     body.home-page section {
-        scroll-snap-align: none;
         min-height: 100vh;
     }
 }
@@ -1383,8 +1386,9 @@ body {
 }
 
 section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    /* Remove this line */
+    /* scroll-snap-align: start; */
+    /* scroll-snap-stop: always; */
 }
 
 @media (min-width: 769px) {

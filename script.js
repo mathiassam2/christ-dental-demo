@@ -69,33 +69,13 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         const targetId = this.getAttribute("href");
         const target = document.querySelector(targetId);
 
-        // Handle mobile menu
-        const offcanvas = document.querySelector(".offcanvas");
+        if (target) {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
 
-        // Check if we're in mobile view (offcanvas is visible)
-        const isMobileView = window.innerWidth < 992; // Bootstrap's lg breakpoint
-
-        if (isMobileView && offcanvas) {
-            const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
-            if (bsOffcanvas) {
-                // Wait for offcanvas to finish hiding before scrolling
-                offcanvas.addEventListener(
-                    "hidden.bs.offcanvas",
-                    function () {
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                        });
-                    },
-                    { once: true }
-                );
-                bsOffcanvas.hide();
-            }
-        } else {
-            // If in desktop view or no offcanvas, scroll immediately
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
             });
         }
     });
@@ -404,108 +384,6 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleNavbarShadow();
 });
 
-// Refined scroll behavior
-document.addEventListener("DOMContentLoaded", function () {
-    // Only run on home page and desktop devices (width > 768px)
-    if (
-        !document.body.classList.contains("home-page") ||
-        window.innerWidth <= 768
-    )
-        return;
-
-    const sections = document.querySelectorAll("#home, section");
-    let isScrolling = false;
-    let currentSection = 0;
-    let lastScrollTime = Date.now();
-    const scrollCooldown = 800;
-
-    // Get current section index
-    const getCurrentSection = () => {
-        let current = 0;
-        let minDistance = Infinity;
-
-        sections.forEach((section, index) => {
-            const rect = section.getBoundingClientRect();
-            const distance = Math.abs(rect.top);
-            if (distance < minDistance) {
-                minDistance = distance;
-                current = index;
-            }
-        });
-        return current;
-    };
-
-    // Smooth scroll to section
-    const scrollToSection = (index) => {
-        if (index >= 0 && index < sections.length && !isScrolling) {
-            isScrolling = true;
-            sections[index].scrollIntoView({ behavior: "smooth" });
-            setTimeout(() => {
-                isScrolling = false;
-            }, 800);
-        }
-    };
-
-    // Wheel event handler with improved detection
-    window.addEventListener(
-        "wheel",
-        (e) => {
-            e.preventDefault();
-
-            const now = Date.now();
-            if (now - lastScrollTime < scrollCooldown || isScrolling) return;
-
-            currentSection = getCurrentSection();
-
-            if (e.deltaY > 0 && currentSection < sections.length - 1) {
-                // Scroll down
-                scrollToSection(currentSection + 1);
-            } else if (e.deltaY < 0 && currentSection > 0) {
-                // Scroll up
-                scrollToSection(currentSection - 1);
-            }
-
-            lastScrollTime = now;
-        },
-        { passive: false }
-    );
-});
-
-// Simplified Review Carousel
-document.addEventListener("DOMContentLoaded", function () {
-    const reviews = document.querySelectorAll(".review");
-    const progressBar = document.querySelector(".review-progress-bar");
-
-    // Only initialize the review carousel if the elements exist
-    if (reviews.length && progressBar) {
-        let currentReview = 0;
-        const intervalTime = 5000; // 5 seconds
-
-        function showNextReview() {
-            reviews[currentReview].classList.remove("active");
-            currentReview = (currentReview + 1) % reviews.length;
-            reviews[currentReview].classList.add("active");
-
-            // Reset and start progress bar
-            progressBar.style.transition = "none";
-            progressBar.style.width = "0%";
-
-            // Force reflow
-            progressBar.offsetHeight;
-
-            progressBar.style.transition = `width ${intervalTime}ms linear`;
-            progressBar.style.width = "100%";
-        }
-
-        // Initial progress bar
-        progressBar.style.transition = `width ${intervalTime}ms linear`;
-        progressBar.style.width = "100%";
-
-        // Set interval for review changes
-        setInterval(showNextReview, intervalTime);
-    }
-});
-
 // Add this after your existing DOMContentLoaded event listener
 document.addEventListener("DOMContentLoaded", function () {
     // Intersection Observer for fade-in animations
@@ -650,4 +528,17 @@ document.addEventListener('DOMContentLoaded', function() {
         firstPill.classList.add('active');
         updateTestimonial(1);
     }
+});
+
+// Alternative approach with dynamic scroll amount
+document.addEventListener('wheel', function(e) {
+    const baseScrollAmount = 30; // Reduced base amount for smoother scrolling
+    const scrollMultiplier = 0.3; // Reduced multiplier for more control
+    
+    const scrollAmount = baseScrollAmount * Math.sign(e.deltaY);
+    
+    window.scrollBy({
+        top: scrollAmount,
+        behavior: 'smooth'
+    });
 });
