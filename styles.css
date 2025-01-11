@@ -526,12 +526,24 @@ section.services-section {
     animation: slideDown 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
+.animate-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideLeft 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.animate-right {
+    opacity: 0;
+    transform: translateX(100px);
+    animation: slideRight 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
 .delay-1 {
     animation-delay: 0.3s;
 }
 
 .delay-2 {
-    animation-delay: 0.6s;
+    animation-delay: 0.5s;
 }
 
 @keyframes slideUp {
@@ -566,13 +578,6 @@ section.services-section {
     }
 }
 
-/* Add new animation for sliding from left */
-.animate-left {
-    opacity: 0;
-    transform: translateX(-100px);
-    animation: slideLeft 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
 /* Mobile animation for schedule button */
 @media (max-width: 768px) {
     .animate-left {
@@ -602,15 +607,6 @@ section.services-section {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Update delays */
-.delay-1 {
-    animation-delay: 0.3s;
-}
-
-.delay-2 {
-    animation-delay: 0.9s; /* Increased delay for button */
 }
 
 /* Update media query */
@@ -1383,12 +1379,6 @@ html {
 
 body {
     transition: scroll-behavior 0.3s ease;
-}
-
-section {
-    /* Remove this line */
-    /* scroll-snap-align: start; */
-    /* scroll-snap-stop: always; */
 }
 
 @media (min-width: 769px) {

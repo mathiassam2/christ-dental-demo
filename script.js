@@ -339,29 +339,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Initialize scroll animations for service items
-    const serviceItems = document.querySelectorAll(
-        ".service-category .col-md-6"
-    );
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Initialize scroll animations for service items
+//     const serviceItems = document.querySelectorAll(
+//         ".service-category .col-md-6"
+//     );
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("fade-in");
-                }
-            });
-        },
-        {
-            threshold: 0.1,
-        }
-    );
+//     const observer = new IntersectionObserver(
+//         (entries) => {
+//             entries.forEach((entry) => {
+//                 if (entry.isIntersecting) {
+//                     entry.target.classList.add("fade-in");
+//                 }
+//             });
+//         },
+//         {
+//             threshold: 0.1,
+//         }
+//     );
 
-    serviceItems.forEach((item) => {
-        observer.observe(item);
-    });
-});
+//     serviceItems.forEach((item) => {
+//         observer.observe(item);
+//     });
+// });
 
 // Add this after your existing code
 document.addEventListener("DOMContentLoaded", function () {
