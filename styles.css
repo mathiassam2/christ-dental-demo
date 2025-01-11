@@ -1353,6 +1353,8 @@ html, body {
 .mobile-nav-links li:nth-child(2) { transition-delay: 0.2s; }
 .mobile-nav-links li:nth-child(3) { transition-delay: 0.3s; }
 .mobile-nav-links li:nth-child(4) { transition-delay: 0.4s; }
+.mobile-nav-links li:nth-child(5) { transition-delay: 0.5s; }
+.mobile-nav-links li:nth-child(6) { transition-delay: 0.6s; }
 
 /* Ensure navbar stays above content but below mobile menu */
 .navbar {
