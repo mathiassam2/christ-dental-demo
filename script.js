@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.text())
         .then((data) => {
             document.getElementById("footer-placeholder").innerHTML = data;
+            // Update year after footer is loaded
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
         });
 
     // Move mobile nav initialization to a separate function
@@ -548,4 +553,14 @@ document.addEventListener('wheel', function(e) {
         top: scrollAmount,
         behavior: 'smooth'
     });
+});
+
+// Update copyright year
+document.addEventListener('DOMContentLoaded', function() {
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+    // Log the current year
+    console.log('Current year:', new Date().getFullYear());
 });
