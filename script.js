@@ -25,6 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
+    // Add footer loading
+    fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+            document.getElementById("footer-placeholder").innerHTML = data;
+        });
+
     // Move mobile nav initialization to a separate function
     function initializeMobileNav() {
         const hamburgerInput = document.querySelector("#hamburger-input");

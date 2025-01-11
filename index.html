@@ -375,15 +375,15 @@
                 </div>
             </div>
 
-            <div class="row g-4 align-items-center">
+            <div class="row g-4 align-items-stretch">
                 <!-- Map Column -->
-                <div class="col-lg-8 scroll-fade">
-                    <div class="rounded-4 overflow-hidden shadow-sm">
+                <div class="col-lg-7 scroll-fade">
+                    <div class="rounded-4 overflow-hidden shadow-sm h-100">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4443363127566!2d110.34954599999999!3d1.5037110000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba7495a90a9cd%3A0xe8cfdb52b59bd983!2sDr%20Christina&#39;s%20Dental%20Clinic!5e0!3m2!1sen!2smy!4v1736604055454!5m2!1sen!2smy" 
                             width="100%" 
-                            height="450" 
-                            style="border:0;" 
+                            height="100%" 
+                            style="border:0; min-height: 450px;" 
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
@@ -391,63 +391,92 @@
                     </div>
                 </div>
 
-                <!-- Info Column -->
-                <div class="col-lg-4 scroll-fade">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <h4 class="h5 mb-4">Contact Information</h4>
-                            
-                            <!-- Address -->
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-map-marker-alt"></i>
+                <!-- Steps Column -->
+                <div class="col-lg-5 scroll-fade">
+                    <div class="card border-0 rounded-4 h-100" style="background-color: white;">
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="mb-4">
+                                    <span class="text-primary fw-bold small">WE VALUE YOUR SMILE</span>
+                                    <h4 class="mb-2">Start your treatment</h4>
+                                    <p class="text-secondary">Every step in your journey is crucial to achieving outstanding, enduring, and natural results.</p>
                                 </div>
-                                <div>
-                                    <h5 class="h6 mb-1">Address</h5>
-                                    <p class="mb-0">No. 37, Lot 5387, RH Plaza, Lorong Lapangan Terbang 1, Sedc Woodhouse, 93250 Kuching, Sarawak</p>
+                                
+                                <!-- Steps -->
+                                <div class="mb-4">
+                                    <!-- Step 1 -->
+                                    <div class="d-flex align-items-start mb-4">
+                                        <div class="me-3">
+                                            <span class="text-primary small fw-bold">STEP 01</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="h6 mb-1">Book a Appointment</h5>
+                                            <p class="mb-0 text-secondary small">Schedule your visit at your convenience</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 2 -->
+                                    <div class="d-flex align-items-start mb-4">
+                                        <div class="me-3">
+                                            <span class="text-primary small fw-bold">STEP 02</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="h6 mb-1">Treatment Fee</h5>
+                                            <p class="mb-0 text-secondary small">We follow MDA scale of fees. Request a quote during your visit.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 3 -->
+                                    <div class="d-flex align-items-start mb-4">
+                                        <div class="me-3">
+                                            <span class="text-primary small fw-bold">STEP 03</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="h6 mb-1">Dental Care</h5>
+                                            <p class="mb-0 text-secondary small">Receive personalized treatment plan and care</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 4 -->
+                                    <div class="d-flex align-items-start mb-4">
+                                        <div class="me-3">
+                                            <span class="text-primary small fw-bold">STEP 04</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="h6 mb-1">Dental Control</h5>
+                                            <p class="mb-0 text-secondary small">Regular follow-ups for optimal results</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Hours -->
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div>
-                                    <h5 class="h6 mb-1">Opening Hours</h5>
-                                    <p class="mb-0">
-                                        Monday - Friday: 8:00 AM - 5:00 PM<br>
-                                        Saturday: 9:00 AM - 1:00 PM<br>
-                                        Sunday: 9:00 AM - 1:00 PM
-                                    </p>
-                                </div>
+                            <!-- Buttons -->
+                            <div class="d-flex gap-3">
+                                <a href="https://wa.me/60135644066?text=Hi,%20I'm%20interested%20in%20scheduling%20a%20dental%20appointment.%20Could%20you%20please%20help%20me%20with%20the%20available%20time%20slots?" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   class="btn px-4 py-2 fw-bold schedule-btn d-inline-flex align-items-center gap-2"
+                                   style="border-radius: 50px;">
+                                    <i class="fab fa-whatsapp"></i>
+                                    Book Now
+                                </a>
+                                <a href="https://maps.app.goo.gl/jq4LdyiusAyCdz1T9" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   class="btn px-4 py-2 fw-bold btn-outline-secondary d-inline-flex align-items-center gap-2"
+                                   style="border-radius: 50px;">
+                                    <i class="fas fa-directions"></i>
+                                    Directions
+                                </a>
                             </div>
-
-                            <!-- Phone -->
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <h5 class="h6 mb-1">Phone</h5>
-                                    <p class="mb-0">+60 13-564 4066</p>
-                                </div>
-                            </div>
-
-                            <!-- Get Directions Button -->
-                            <a href="https://maps.app.goo.gl/jq4LdyiusAyCdz1T9" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               class="btn px-4 py-2 fw-bold d-inline-flex align-items-center gap-2 schedule-btn w-100 justify-content-center mt-3">
-                                <i class="fas fa-directions"></i>
-                                Get Directions
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="footer-placeholder"></div>
 
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
