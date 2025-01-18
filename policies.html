@@ -12,80 +12,223 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/3c687cb8f7.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles.css">
+        <!-- Add this CSS to your styles.css -->
+    <style>
+        .policy-section {
+            padding: 4rem 0;
+        }
+
+        .policy-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        .policy-list,
+        .policy-list ul,
+        .policy-list li,
+        .policy-card ul,
+        .policy-card li {
+            list-style: none !important;
+            list-style-type: none !important;
+            -webkit-padding-start: 0 !important;
+            padding-left: 0 !important;
+            margin: 0 !important;
+        }
+
+        .policy-list li {
+            margin-bottom: 0.75rem !important;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .policy-list li i {
+            color: #ffb5b9;
+            margin-top: 0.25rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #fff0f1 0%, #fff8f8 100%);
+            color: #333;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+            border-left: 2px solid #ffb5b9;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #ffb5b9;
+        }
+
+        .contact-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            border-top: 5px solid #ffb5b9;
+        }
+
+        /* Force remove any bullets */
+        .policy-list li::before,
+        .policy-list li::after,
+        .policy-card li::before,
+        .policy-card li::after {
+            display: none !important;
+            content: none !important;
+        }
+    </style>
     </head>
 <body class="content-page">
     <div id="navbar-placeholder"></div>
     
-    <div class="container-fluid px-5 py-5" style="min-height: calc(100vh - 76px); padding-top: 76px;">
-        <div class="container-xxl mx-auto">
-            <h1 class="display-4 fw-bold mb-5 scroll-fade">Clinic Policies</h1>
-            
-            <!-- Introduction -->
-            <div class="row mb-5 scroll-fade">
-                <div class="col-12">
-                    <p class="lead">Please read our clinic policies carefully before starting treatment with us. If you have any questions or concerns, our staff will be happy to assist you.</p>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="display-4 fw-bold mb-4">Clinic Policies</h1>
+                <p class="lead">We invite you to kindly read our clinic policy before starting treatment with us. Please do not hesitate to approach our clinical staff/dentist if you require any clarification or if you have any comments, questions or concerns.</p>
+                <div class="mt-4">
+                    <a href="Clinic Policy R.pdf" download class="btn btn-lg" style="background-color: white; color: #333; padding: 0.8rem 2rem; border-radius: 50px; border: none; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                        <i class="fas fa-file-pdf me-2"></i>Download Policy PDF
+                    </a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Policy Sections -->
-            <div class="row g-5">
-                <!-- Infection Control -->
-                <div class="col-md-6 scroll-fade">
-                    <div class="policy-card">
-                        <h2 class="h3 mb-4">Infection Control</h2>
-                        <p>We believe that infection control is important to prevent cross contamination of diseases from patient to patient. Therefore:</p>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Staff Contracts Section -->
+        <div class="policy-section">
+            <h2 class="h3 mb-4"><i class="fas fa-file-contract me-3"></i>Staff Contracts</h2>
+            <div class="policy-card">
+                <ul class="policy-list">
+                    <li><i class="fas fa-check"></i>Written contract between practicing registered dental practitioners and clinic</li>
+                    <li><i class="fas fa-check"></i>Written contract between employed dental clinic assistants and clinic</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Patient Registration Timeline -->
+        <div class="policy-section">
+            <h2 class="h3 mb-4"><i class="fas fa-user-plus me-3"></i>Patient Registration Process</h2>
+            <div class="timeline-item">
+                <h4>Documentation</h4>
+                <ul class="policy-list">
+                    <li><i class="fas fa-id-card"></i>MyKad or Passport required upon registration</li>
+                    <li><i class="fas fa-file-medical"></i>Medical history and purpose of visit required</li>
+                    <li><i class="fas fa-user-shield"></i>Consent required (parental consent for under 18)</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Appointment System</h4>
+                <ul class="policy-list">
+                    <li><i class="fas fa-calendar-check"></i>All treatments are appointment-based</li>
+                    <li><i class="fas fa-exclamation-circle"></i>Walk-ins accepted only for emergencies</li>
+                    <li><i class="fas fa-clock"></i>Arrive 5-10 minutes before appointment</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Billing and Payment -->
+        <div class="policy-section">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="h3 mb-4"><i class="fas fa-credit-card me-3"></i>Payment Methods</h2>
+                    <div class="policy-card h-100">
                         <ul class="policy-list">
-                            <li>All instruments are presoaked in disinfectant solution</li>
-                            <li>Instruments are pouched before autoclaving</li>
-                            <li>We use disposable items for single use</li>
-                            <li>New polishing brushes are issued to patients</li>
+                            <li><i class="fas fa-money-bill-wave"></i>Cash</li>
+                            <li><i class="fas fa-credit-card"></i>Debit/Credit Cards</li>
+                            <li><i class="fas fa-mobile-alt"></i>DuitNow, Boost, Sarawak Pay</li>
+                            <li><i class="fas fa-university"></i>Online Bank Transfer</li>
+                            <li><i class="fas fa-money-check"></i>Cheque (regular patients only)</li>
                         </ul>
                     </div>
                 </div>
-
-                <!-- Appointments -->
-                <div class="col-md-6 scroll-fade">
-                    <div class="policy-card">
-                        <h2 class="h3 mb-4">Appointments</h2>
+                <div class="col-md-6">
+                    <h2 class="h3 mb-4"><i class="fas fa-file-invoice me-3"></i>Billing Policies</h2>
+                    <div class="policy-card h-100">
                         <ul class="policy-list">
-                            <li>Arrive 5-10 minutes before appointment time</li>
-                            <li>Some waiting time may be expected</li>
-                            <li>Walk-ins for emergencies only</li>
-                            <li>New patients should register before appointments</li>
-                            <li>24-hour notice for cancellations</li>
-                            <li>RM20 fee for late cancellations</li>
+                            <li><i class="fas fa-info-circle"></i>Treatment costs recorded in clinic management software</li>
+                            <li><i class="fas fa-receipt"></i>Detailed billing statements available upon request</li>
+                            <li><i class="fas fa-calculator"></i>Treatment cost estimates available</li>
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Patient Rights -->
-                <div class="col-md-6 scroll-fade">
+        <!-- Treatment Guarantees -->
+        <div class="policy-section">
+            <h2 class="h3 mb-4"><i class="fas fa-shield-alt me-3"></i>Treatment Guarantees</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
                     <div class="policy-card">
-                        <h2 class="h3 mb-4">Patient Rights</h2>
-                        <ul class="policy-list">
-                            <li>Right to be informed of medical condition</li>
-                            <li>Right to dignity and respect</li>
-                            <li>Right to request treatment reports</li>
-                            <li>Right to ask questions about fees/treatment</li>
-                        </ul>
+                        <h4><i class="fas fa-tooth me-2"></i>Restorative</h4>
+                        <p>Free restoration provided if initial work dislodges, cracks, or debonds within 3 months</p>
                     </div>
                 </div>
-
-                <!-- Treatment Policies -->
-                <div class="col-md-6 scroll-fade">
+                <div class="col-md-6">
                     <div class="policy-card">
-                        <h2 class="h3 mb-4">Treatment Policies</h2>
-                        <h3 class="h5 mb-3">Restorative</h3>
-                        <p>Free restoration within 3 months if dislodged/cracked</p>
-                        
-                        <h3 class="h5 mb-3 mt-4">Prosthetic</h3>
-                        <p>Free adjustments within 3 months of issuance</p>
+                        <h4><i class="fas fa-smile me-2"></i>Prosthesis</h4>
+                        <p>Unlimited adjustments to prostheses/dentures within 3 months of issuance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Patient Rights -->
+        <div class="policy-section">
+            <h2 class="h3 mb-4"><i class="fas fa-user-shield me-3"></i>Patient Rights</h2>
+            <div class="policy-card">
+                <ul class="policy-list">
+                    <li><i class="fas fa-info-circle"></i>Right to be informed of dental condition, treatment options, and costs</li>
+                    <li><i class="fas fa-heart"></i>Treatment with dignity, respect, and courtesy</li>
+                    <li><i class="fas fa-file-medical"></i>Access to treatment reports after bill settlement</li>
+                    <li><i class="fas fa-question-circle"></i>Right to ask questions about treatment or billing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="policy-section">
+            <h2 class="h3 mb-4 text-center">Contact Us</h2>
+            <div class="contact-box text-center">
+                <p class="lead mb-4">We welcome your comments, suggestions, and feedback</p>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <i class="fas fa-phone fa-2x mb-3" style="color: #ffb5b9"></i>
+                        <p>+6082-452505<br>+6013-5644066</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-envelope fa-2x mb-3" style="color: #ffb5b9"></i>
+                        <p>drchrisdental1@gmail.com<br>drchris@chris-dental.com</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-clock fa-2x mb-3" style="color: #ffb5b9"></i>
+                        <p>Response within<br>14 days</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <div id="footer-placeholder"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
