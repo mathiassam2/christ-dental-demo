@@ -12,105 +12,369 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3c687cb8f7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .team-member {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .member-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 0;
+            background-image: url('assets/images/tooth.png');
+            background-size: 50px;
+            background-repeat: repeat;
+            background-blend-mode: soft-light;
+        }
+
+        /* .member-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            transform: rotate(90deg);
+            z-index: -1;
+            opacity: 0.5;
+        } */
+
+        .member-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        /* Adjust image height for top row doctors */
+        .row:first-of-type .member-container img {
+            max-height: 400px;
+            height: 400px;
+            object-fit: contain;
+            object-position: top;
+        }
+
+        /* Add padding only for doctors row */
+        .row:first-of-type .member-container {
+            padding: 15px;
+        }
+
+        /* Make nurses images 1:1 ratio */
+        .row:not(:first-of-type) .member-container {
+            aspect-ratio: 1/1;
+        }
+
+        .row:not(:first-of-type) .member-container img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: rgba(255, 240, 241, 0.9);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.5s;
+            max-height: 80px;
+            overflow: hidden;
+        }
+
+        .member-info.expanded {
+            max-height: 90%;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+
+        .show-more-content {
+            display: none;
+            margin-top: 1rem;
+            text-align: left;
+            padding: 0.5rem 0;
+        }
+
+        .show-more-content p:first-child {
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 0.8rem;
+        }
+
+        .show-more-content p:last-child {
+            font-weight: 400;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .show-more-content.visible {
+            display: block;
+        }
+
+        .show-more-btn {
+            background: none;
+            border: none;
+            color: #666;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .show-more-btn i {
+            margin-right: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .show-more-btn:hover {
+            color: #333;
+        }
+
+        .member-info.expanded .show-more-btn i {
+            transform: rotate(180deg);
+        }
+
+        /* Icons for qualifications */
+        .qualification-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1.2rem 0;
+            font-size: 1.2rem;
+        }
+
+        .qualification-icons i {
+            color: #666;
+        }
+
+        /* Scrollbar styling */
+        .member-info::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .member-info::-webkit-scrollbar-track {
+            background: rgba(255, 240, 241, 0.9);
+        }
+
+        .member-info::-webkit-scrollbar-thumb {
+            background: #666;
+            border-radius: 3px;
+        }
+
+        .member-container:hover .member-info {
+            max-height: 93%;
+        }
+
+        .member-info .speech-text {
+            margin-top: 1rem;
+            transition: opacity 0.5s ease;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .member-info h5 {
+            margin: 0;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .member-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
 
-<section class="container-fluid px-5 pt-5">
-    <div class="container-xxl mx-auto">
-        <div class="mb-5 team-fade">
-            <h1 class="display-4 fw-bold">Our Team</h1>
-            <p class="lead">Meet the dedicated professionals behind our dental practice.</p>
-        </div>
-
-        <div class="team-detail-card team-fade">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="team-member-image-container position-relative">
-                        <div class="background-shape"></div>
-                        <div class="background-shape-2"></div>
-                        <img src="assets/images/drchris2.png" alt="Dr. Christina Tan" class="team-member-image" style="width: 100%; height: auto; max-height: 600px; object-fit: contain;">
-                    </div>
-                    <div class="team-member-info mt-4">
-                        <h2 class="h4 text-primary mb-2">Clinical Director</h2>
-                        <h3 class="display-6 fw-bold mb-4">Dr. Christina Tan</h3>
-                        <div class="education-highlights">
-                            <p><i class="fas fa-graduation-cap me-2"></i>BDS, University of Malaya</p>
-                            <p><i class="fas fa-award me-2"></i>FICCDE in Orthodontics</p>
-                            <p><i class="fas fa-certificate me-2"></i>Masters in Surgical and Implant Dentistry</p>
-                            <p class="mt-3">
-                                <a href="mailto:drchris@chris-dental.com" class="text-decoration-none contact-link">
-                                    <i class="fas fa-envelope me-2"></i>drchris@chris-dental.com
-                                </a>
-                            </p>
+    <div class="container">
+        <section class="pt-5">
+            <h2 class="text-center mb-5">Our Clinic Family</h2>
+            
+            <div class="row justify-content-center mb-5">
+                <!-- Dentists Row -->
+                <div class="col-md-4">
+                    <div class="team-member scroll-fade">
+                        <div class="member-container">
+                            <img src="assets/images/drchris2.png" alt="Dr. Christina Tan" class="img-fluid">
+                            <div class="member-info">
+                                <h5>Dr. Christina Tan</h5>
+                                <p>Clinic Director</p>
+                                <div class="qualification-icons">
+                                    <i class="fas fa-graduation-cap" title="MSc Implant Dentistry"></i>
+                                    <i class="fas fa-tooth" title="Orthodontics"></i>
+                                    <i class="fas fa-certificate" title="BDS UM"></i>
+                                </div>
+                                <p class="speech-text">"Hi, I'm Dr. Chris! I graduated as a dental surgeon in 1995 and have specialized in Orthodontics and Implant Dentistry. I believe in continuous learning and staying updated with the latest dental techniques to provide the best care for our patients."</p>
+                                <div class="show-more-content">
+                                    <p>MSc (Implant Dentistry) Germany, FICCDE (Orthodontics) Singapore, BDS UM</p>
+                                    <p>Dr. Chris graduated as a dental surgeon in 1995 from the University of Malaya and subsequently obtained her specialized training in Orthodontics with honours from the McGann Post Graduate School of Dentistry (USA) in 2013. Her interest in full mouth oral rehabilitation led her to pursue her MSc in Implant Dentistry from the International Medical College, Munster Germany in 2016. She advocates continual education and consistently attends CPD courses to upskill herself.</p>
+                                </div>
+                                <button class="show-more-btn">
+                                    <i class="fas fa-chevron-down"></i>
+                                    <span>Show more</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <div class="team-member-bio">
-                        <h4 class="mb-4">About Dr. Chris</h4>
-                        <p class="mb-4">Dr.Chris, as she is fondly known, hails from Kajang, a West Malaysian town located in the State of Selangor, that has been famous by its satay. She received a Bachelor of Dental Surgery (BDS) degree from the University of Malaya in 1995.</p>
-                        
-                        <p class="mb-4">Since that time, she has served as a dentist at various private dental clinics located throughout West Malaysia (including Kajang, Johor Baru, Kuala Terengganu, Langkawi Island and Kuala Lumpur), prior to moving to Kuching, Sarawak. In 2002, she completed a 2 year Clinical Orthodontic Course and has been practicing Orthodontics since.</p>
-
-                        <!-- Add the rest of the biography -->
-                        
-                        <div class="achievements mt-5">
-                            <h4 class="mb-4">Achievements & Certifications</h4>
-                            <ul class="list-unstyled">
-                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>Highest honors recipient from Progressive Orthodontics Seminar, USA (2013, 2014)</li>
-                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>Fellowship of International College of Continuing Dental Education (FICCDE)</li>
-                                <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i>Masters in Surgical and Implant Dentistry, International Medical College, Germany</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> 
-
-<!-- Dental Assistants Section -->
-<section class="container-fluid px-5 py-5">
-    <div class="container-xxl mx-auto">
-        <div class="team-assistants-card team-fade">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="team-photo-container">
-                        <img src="assets/images/team.jpeg" alt="Our Dental Team" class="team-photo rounded-4">
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <h3 class="h4 text-primary mb-4">The Dental Surgery Assistants</h3>
-                    
-                    <div class="assistant-profiles">
-                        <div class="assistant-profile mb-4 team-fade">
-                            <h4 class="h5 fw-bold mb-2">Madam Cecilia Dayat</h4>
-                            <p class="mb-0">Cecilia is also a Bidayuh and hails from Bau. She is fondly known as "Cyl". She is married to a local Bidayuh gentleman and they have two kids. Cyl joined our practice in August 2010.</p>
-                        </div>
-
-                        <div class="assistant-profile mb-4 team-fade">
-                            <h4 class="h5 fw-bold mb-2">Puan Zarina binti Zamahari</h4>
-                            <p class="mb-0">Ina, as she is fondly referred to, is our local Muslim Malay girl from Kuching. She joined our team in December 2011 and is multi-lingual. Ina speaks Malay fluently and also English and Mandarin.</p>
-                        </div>
-
-                        <div class="assistant-profile mb-4 team-fade">
-                            <h4 class="h5 fw-bold mb-2">Miss Alina</h4>
-                            <p class="mb-0">Alina, also a Bidayuh from Kuching, recently joined our practice.</p>
-                        </div>
-
-                        <div class="assistant-profile team-fade">
-                            <h4 class="h5 fw-bold mb-2">Miss Jong Ai Chia</h4>
-                            <p class="mb-0">Ms. Jong is a local Chinese girl from Kuching who also recently joined us.</p>
+                <div class="col-md-4">
+                    <div class="team-member scroll-fade">
+                        <div class="member-container">
+                            <img src="assets/images/magphang.png" alt="Dr. Magdalene Phang" class="img-fluid">
+                            <div class="member-info">
+                                <h5>Dr. Magdalene Phang</h5>
+                                <p>Dental Associate</p>
+                                <div class="qualification-icons">
+                                    <i class="fas fa-graduation-cap" title="BDS VMU"></i>
+                                    <i class="fas fa-briefcase" title="MBA"></i>
+                                    <i class="fas fa-tooth" title="Orthodontics"></i>
+                                </div>
+                                <p class="speech-text">"Hello! I'm Dr. Mag, and I love working with our junior patients. I specialize in Orthodontics and Dental Sleep Medicine. I graduated in 2013 and have since pursued my MBA to better serve our clinic's needs."</p>
+                                <div class="show-more-content">
+                                    <p>BDS VMU, India, MBA, UK</p>
+                                    <p>Dr. Mag graduated as a dental surgeon in 2013 with a Bronze Medal from the Vinayaka Missions University, India. She later pursued a Master degree in Business Administration (MBA) from the University of Sunderland in 2018. She has specialized training in Orthodontics and her area of interest is in Airway and Dental Sleep Medicine. Dr. Mag is very popular with our junior patients.</p>
+                                </div>
+                                <button class="show-more-btn">
+                                    <i class="fas fa-chevron-down"></i>
+                                    <span>Show more</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <!-- Nurses Row -->
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <div class="team-member scroll-fade">
+                        <div class="member-container">
+                            <img src="assets/images/Alina Anak Jaja.png" alt="Alina" class="img-fluid">
+                            <div class="member-info">
+                                <h5>Alina</h5>
+                                <p>Dental Nurse</p>
+                                <p class="speech-text">"Hi, I'm Alina from Padawan. I joined the clinic in 2019 and take pride in providing gentle care to our patients."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member scroll-fade">
+                        <div class="member-container">
+                            <img src="assets/images/Cecilia Anak Dayat.png" alt="Cecilia" class="img-fluid" style="object-position: 70% 35%;">
+                            <div class="member-info">
+                                <h5>Cecilia</h5>
+                                <p>Senior Dental Nurse</p>
+                                <p class="speech-text">"I'm Cyl, and I've been part of this amazing team since 2009. My experience helps me provide the best clinical assistance to our doctors."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member scroll-fade">
+                        <div class="member-container">
+                            <img src="assets/images/Jong Ai Jia.png" alt="Ai Jia" class="img-fluid">
+                            <div class="member-info">
+                                <h5>Jong Ai Jia</h5>
+                                <p>Nurse & Administrator</p>
+                                <p class="speech-text">"Hello! I'm Ai Jia, and I've been here since 2020. I handle both nursing and administrative duties with efficiency and dedication."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member scroll-fade">
+                        <div class="member-container">
+                            <img src="assets/images/Zarina binti Zamahari.png" alt="Zarina" class="img-fluid" style="object-position: center 30%;">
+                            <div class="member-info">
+                                <h5>Zarina</h5>
+                                <p>Senior Dental Nurse</p>
+                                <p class="speech-text">"I'm Ina, bringing smiles and laughter to our surgery since 2010. I believe a good laugh helps our anxious patients feel more at ease!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</section>
+
+    <!-- Team Photo Section -->
+    <section class="pt-5 pb-5 scroll-fade">
+        <h2 class="text-center mb-5">Our Family Photo</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-10" style="max-width: 800px;">
+                <img src="assets/images/team.jpeg" alt="Our Dental Team" class="img-fluid w-100">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script>
+    document.querySelectorAll('.show-more-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const memberInfo = this.closest('.member-info');
+            const showMoreContent = memberInfo.querySelector('.show-more-content');
+            const buttonText = this.querySelector('span');
+            
+            if (!memberInfo.classList.contains('expanded')) {
+                memberInfo.classList.add('expanded');
+                showMoreContent.classList.add('visible');
+                buttonText.textContent = 'Show less';
+            } else {
+                memberInfo.classList.remove('expanded');
+                showMoreContent.classList.remove('visible');
+                buttonText.textContent = 'Show more';
+            }
+        });
+    });
+
+    // Update hover out behavior with null checks
+    document.querySelectorAll('.member-container').forEach(container => {
+        container.addEventListener('mouseleave', function() {
+            const memberInfo = this.querySelector('.member-info');
+            const showMoreContent = memberInfo.querySelector('.show-more-content');
+            const showMoreBtn = memberInfo.querySelector('.show-more-btn');
+            
+            // Only perform these actions if the elements exist
+            if (showMoreContent && showMoreBtn) {
+                memberInfo.classList.remove('expanded');
+                showMoreContent.classList.remove('visible');
+                showMoreBtn.querySelector('span').textContent = 'Show more';
+            }
+        });
+    });
+
+    document.querySelectorAll('.member-info').forEach(info => {
+        info.addEventListener('wheel', function(e) {
+            if (this.classList.contains('expanded')) {
+                const isScrollingPossible = 
+                    (e.deltaY > 0 && this.scrollTop < this.scrollHeight - this.clientHeight) || 
+                    (e.deltaY < 0 && this.scrollTop > 0);
+
+                if (isScrollingPossible) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    this.scrollTop += e.deltaY;
+                }
+            }
+        }, { passive: false });
+    });
+</script>
 </body>
 </html> 
