@@ -193,6 +193,13 @@
             color: #666;
             font-size: 0.9rem;
         }
+
+        /* Remove rounded corners on mobile */
+        @media (max-width: 767.98px) {
+            .mobile-no-rounded {
+                border-radius: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -210,7 +217,7 @@
                             <img src="assets/images/drchris2.png" alt="Dr. Christina Tan" class="img-fluid">
                             <div class="member-info">
                                 <h5>Dr. Christina Tan</h5>
-                                <p>Clinic Director</p>
+                                <p>Clinic Director <i class="fas fa-chevron-down"></i></p>
                                 <div class="qualification-icons">
                                     <i class="fas fa-graduation-cap" title="MSc Implant Dentistry"></i>
                                     <i class="fas fa-tooth" title="Orthodontics"></i>
@@ -235,7 +242,7 @@
                             <img src="assets/images/magphang.png" alt="Dr. Magdalene Phang" class="img-fluid">
                             <div class="member-info">
                                 <h5>Dr. Magdalene Phang</h5>
-                                <p>Dental Associate</p>
+                                <p>Dental Associate <i class="fas fa-chevron-down"></i></p>
                                 <div class="qualification-icons">
                                     <i class="fas fa-graduation-cap" title="BDS VMU"></i>
                                     <i class="fas fa-briefcase" title="MBA"></i>
@@ -264,7 +271,7 @@
                             <img src="assets/images/Alina Anak Jaja.png" alt="Alina" class="img-fluid">
                             <div class="member-info">
                                 <h5>Alina</h5>
-                                <p>Dental Nurse</p>
+                                <p>Dental Nurse <i class="fas fa-chevron-down"></i></p>
                                 <p class="speech-text">"Hi, I'm Alina from Padawan. I joined the clinic in 2019 and take pride in providing gentle care to our patients."</p>
                             </div>
                         </div>
@@ -276,7 +283,7 @@
                             <img src="assets/images/Cecilia Anak Dayat.png" alt="Cecilia" class="img-fluid" style="object-position: 70% 35%;">
                             <div class="member-info">
                                 <h5>Cecilia</h5>
-                                <p>Senior Dental Nurse</p>
+                                <p>Senior Dental Nurse <i class="fas fa-chevron-down"></i></p>
                                 <p class="speech-text">"I'm Cyl, and I've been part of this amazing team since 2009. My experience helps me provide the best clinical assistance to our doctors."</p>
                             </div>
                         </div>
@@ -288,7 +295,7 @@
                             <img src="assets/images/Jong Ai Jia.png" alt="Ai Jia" class="img-fluid">
                             <div class="member-info">
                                 <h5>Jong Ai Jia</h5>
-                                <p>Nurse & Administrator</p>
+                                <p>Nurse & Administrator <i class="fas fa-chevron-down"></i></p>
                                 <p class="speech-text">"Hello! I'm Ai Jia, and I've been here since 2020. I handle both nursing and administrative duties with efficiency and dedication."</p>
                             </div>
                         </div>
@@ -300,7 +307,7 @@
                             <img src="assets/images/Zarina binti Zamahari.png" alt="Zarina" class="img-fluid" style="object-position: center 30%;">
                             <div class="member-info">
                                 <h5>Zarina</h5>
-                                <p>Senior Dental Nurse</p>
+                                <p>Senior Dental Nurse <i class="fas fa-chevron-down"></i></p>
                                 <p class="speech-text">"I'm Ina, bringing smiles and laughter to our surgery since 2010. I believe a good laugh helps our anxious patients feel more at ease!"</p>
                             </div>
                         </div>
@@ -315,7 +322,7 @@
         <h2 class="text-center mb-5">Our Family Photo</h2>
         <div class="row justify-content-center">
             <div class="col-md-10" style="max-width: 800px;">
-                <img src="assets/images/team.jpeg" alt="Our Dental Team" class="img-fluid w-100 rounded-4">
+                <img src="assets/images/team.jpeg" alt="Our Dental Team" class="img-fluid w-100 rounded-4 mobile-no-rounded">
             </div>
         </div>
     </section>
