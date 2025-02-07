@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Dr Christina's Dental Clinic</title>
+    <title>Our Clinic Family - Dr Christina's Dental Clinic</title>
     <!-- Multiple favicon formats -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/logo.png">
@@ -13,375 +13,378 @@
     <script src="https://kit.fontawesome.com/3c687cb8f7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .team-member {
-            margin-bottom: 2rem;
+        .team-photo-container {
             position: relative;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .member-container {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            padding: 0;
-            background-image: url('assets/images/tooth.png');
-            background-size: 50px;
-            background-repeat: repeat;
-            background-blend-mode: soft-light;
-        }
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            
+            .team-photo-container {
+                margin: 0;
+            }
 
-        /* .member-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: inherit;
-            transform: rotate(90deg);
-            z-index: -1;
-            opacity: 0.5;
-        } */
-
-        .member-container img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 0;
-        }
-
-        /* Adjust image height for top row doctors */
-        .row:first-of-type .member-container img {
-            max-height: 400px;
-            height: 400px;
-            object-fit: contain;
-            object-position: top;
-        }
-
-        /* Add padding only for doctors row */
-        .row:first-of-type .member-container {
-            padding: 15px;
-        }
-
-        /* Make nurses images 1:1 ratio */
-        .row:not(:first-of-type) .member-container {
-            aspect-ratio: 1/1;
-        }
-
-        .row:not(:first-of-type) .member-container img {
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .member-info {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            right: 15px;
-            background: rgba(255, 240, 241, 0.9);
-            padding: 1rem;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.5s;
-            max-height: 80px;
-            overflow: hidden;
-        }
-
-        .member-info.expanded {
-            max-height: 90%;
-            overflow-y: auto;
-            overscroll-behavior: contain;
-        }
-
-        .show-more-content {
-            display: none;
-            margin-top: 1rem;
-            text-align: left;
-            padding: 0.5rem 0;
-        }
-
-        .show-more-content p:first-child {
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 0.8rem;
-        }
-
-        .show-more-content p:last-child {
-            font-weight: 400;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .show-more-content.visible {
-            display: block;
-        }
-
-        .show-more-btn {
-            background: none;
-            border: none;
-            color: #666;
-            padding: 0.5rem;
-            margin-top: 0.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .show-more-btn i {
-            margin-right: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .show-more-btn:hover {
-            color: #333;
-        }
-
-        .member-info.expanded .show-more-btn i {
-            transform: rotate(180deg);
-        }
-
-        /* Icons for qualifications */
-        .qualification-icons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 1.2rem 0;
-            font-size: 1.2rem;
-        }
-
-        .qualification-icons i {
-            color: #666;
-        }
-
-        /* Scrollbar styling */
-        .member-info::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .member-info::-webkit-scrollbar-track {
-            background: rgba(255, 240, 241, 0.9);
-        }
-
-        .member-info::-webkit-scrollbar-thumb {
-            background: #666;
-            border-radius: 3px;
-        }
-
-        .member-container:hover .member-info {
-            max-height: 93%;
-        }
-
-        .member-info .speech-text {
-            margin-top: 1rem;
-            transition: opacity 0.5s ease;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .member-info h5 {
-            margin: 0;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .member-info p {
-            margin: 0;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Remove rounded corners on mobile */
-        @media (max-width: 767.98px) {
-            .mobile-no-rounded {
+            .team-photo {
                 border-radius: 0 !important;
             }
         }
+
+        .team-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .team-member-section {
+            position: absolute;
+        }
+
+        .team-member-label {
+            padding: 5px 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            cursor: default;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+
+        .team-member-label:hover {
+            background-color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .team-member-section.active .team-member-label {
+            background-color: #ffb5b9;
+            color: black;
+            border-color: #f3a1a5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .member-info-box {
+            display: none;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            width: 300px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .member-info-box.visible {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .member-info-box {
+                position: fixed;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: 320px;
+                max-width: 90vw;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .member-info-box:before {
+                display: none;
+            }
+
+            .team-member-label {
+                cursor: pointer;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0;  /* Hide the text */
+                position: relative;
+            }
+
+            .team-member-label::after {
+                content: '';
+                width: 12px;
+                height: 12px;
+                background-color: #ffb5b9;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            .team-member-section.active .team-member-label::after {
+                background-color: #f3a1a5;
+                transform: scale(1.2);
+            }
+
+            /* Adjust positions for better mobile layout */
+            #mag-section { top: 8%; left: 21%; }
+            #chris-section { top: 8%; left: 70%; }
+            #alina-section { top: 45%; left: 15%; }
+            #cecilia-section { top: 0%; left: 45%; }
+            #zarina-section { top: 45%; left: 40%; }
+            #aijia-section { top: 45%; left: 80%; }
+        }
+
+        /* Special positioning for Cecilia's info box on desktop */
+        @media (min-width: 769px) {
+            #cecilia-section .member-info-box {
+                top: 50%;
+                left: calc(100% + 10px);
+                transform: translateY(-50%);
+            }
+
+            #cecilia-section .member-info-box:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -8px;
+                transform: translateY(-50%);
+                width: 0;
+                height: 0;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-right: 8px solid rgba(255, 255, 255, 0.95);
+            }
+
+            .member-info-box:not(#cecilia-section .member-info-box):before {
+                content: '';
+                position: absolute;
+                top: -8px;
+                left: 20px;
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid rgba(255, 255, 255, 0.95);
+            }
+
+            .member-info-box {
+                top: calc(100% + 10px);
+                left: 0;
+            }
+        }
+
+        .member-info-box h5 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .member-info-box p {
+            margin: 0 0 5px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .member-info-box .quote {
+            font-style: italic;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .member-info-box .position {
+            color: #ff8087;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .member-info-box .qualifications {
+            background-color: rgba(255, 181, 185, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .member-info-box .qualifications p {
+            margin: 3px 0;
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        .member-info-box .experience {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* Position for each team member section */
+        #mag-section { top: 15%; left: 13%; }
+        #chris-section { top: 15%; left: 70%; }
+        #alina-section { top: 60%; left: 15%; }
+        #cecilia-section { top: 2%; left: 43%; }
+        #zarina-section { top: 60%; left: 45%; }
+        #aijia-section { top: 60%; left: 80%; }
     </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
 
-    <div class="container">
-        <section class="pt-5">
-            <h2 class="text-center mb-5">Our Clinic Family</h2>
+    <div class="container py-5">
+        <h2 class="text-center mb-5">Our Clinic Family</h2>
+        
+        <div class="team-photo-container">
+            <img src="assets/images/team.jpeg" alt="Our Dental Team" class="team-photo">
             
-            <div class="row justify-content-center mb-5">
-                <!-- Dentists Row -->
-                <div class="col-md-4">
-                    <div class="team-member scroll-fade">
-                        <div class="member-container">
-                            <img src="assets/images/drchris2.png" alt="Dr. Christina Tan" class="img-fluid">
-                            <div class="member-info">
-                                <h5>Dr. Christina Tan</h5>
-                                <p>Clinic Director <i class="fas fa-chevron-down"></i></p>
-                                <div class="qualification-icons">
-                                    <i class="fas fa-graduation-cap" title="MSc Implant Dentistry"></i>
-                                    <i class="fas fa-tooth" title="Orthodontics"></i>
-                                    <i class="fas fa-certificate" title="BDS UM"></i>
-                                </div>
-                                <p class="speech-text">"Hi, I'm Dr. Chris! I graduated as a dental surgeon in 1995 and have specialized in Orthodontics and Implant Dentistry. I believe in continuous learning and staying updated with the latest dental techniques to provide the best care for our patients."</p>
-                                <div class="show-more-content">
-                                    <p>MSc (Implant Dentistry) Germany, FICCDE (Orthodontics) Singapore, BDS UM</p>
-                                    <p>Dr. Chris graduated as a dental surgeon in 1995 from the University of Malaya and subsequently obtained her specialized training in Orthodontics with honours from the McGann Post Graduate School of Dentistry (USA) in 2013. Her interest in full mouth oral rehabilitation led her to pursue her MSc in Implant Dentistry from the International Medical College, Munster Germany in 2016. She advocates continual education and consistently attends CPD courses to upskill herself.</p>
-                                </div>
-                                <button class="show-more-btn">
-                                    <i class="fas fa-chevron-down"></i>
-                                    <span>Show more</span>
-                                </button>
-                            </div>
-                        </div>
+            <!-- Team member sections -->
+            <div id="chris-section" class="team-member-section">
+                <div class="team-member-label">Dr. Christina</div>
+                <div class="member-info-box">
+                    <h5>Dr. Christina Tan</h5>
+                    <p class="position">Clinic Director</p>
+                    <div class="qualifications">
+                        <p>• MSc (Implant Dentistry), Germany</p>
+                        <p>• FICCDE (Orthodontics), Singapore</p>
+                        <p>• BDS, University of Malaya</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team-member scroll-fade">
-                        <div class="member-container">
-                            <img src="assets/images/magphang.png" alt="Dr. Magdalene Phang" class="img-fluid">
-                            <div class="member-info">
-                                <h5>Dr. Magdalene Phang</h5>
-                                <p>Dental Associate <i class="fas fa-chevron-down"></i></p>
-                                <div class="qualification-icons">
-                                    <i class="fas fa-graduation-cap" title="BDS VMU"></i>
-                                    <i class="fas fa-briefcase" title="MBA"></i>
-                                    <i class="fas fa-tooth" title="Orthodontics"></i>
-                                </div>
-                                <p class="speech-text">"Hello! I'm Dr. Mag, and I love working with our junior patients. I specialize in Orthodontics and Dental Sleep Medicine. I graduated in 2013 and have since pursued my MBA to better serve our clinic's needs."</p>
-                                <div class="show-more-content">
-                                    <p>BDS VMU, India, MBA, UK</p>
-                                    <p>Dr. Mag graduated as a dental surgeon in 2013 with a Bronze Medal from the Vinayaka Missions University, India. She later pursued a Master degree in Business Administration (MBA) from the University of Sunderland in 2018. She has specialized training in Orthodontics and her area of interest is in Airway and Dental Sleep Medicine. Dr. Mag is very popular with our junior patients.</p>
-                                </div>
-                                <button class="show-more-btn">
-                                    <i class="fas fa-chevron-down"></i>
-                                    <span>Show more</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="experience">With over 30 years of experience, Dr. Chris graduated as a dental surgeon in 1995 from the University of Malaya. She obtained her specialized training in Orthodontics with honours from the McGann Post Graduate School of Dentistry (USA) in 2013, and completed her MSc in Implant Dentistry from the International Medical College, Munster Germany in 2016.</p>
+                    <p class="quote">"I believe in continual education and consistently attend CPD courses to provide the best care for my patients."</p>
                 </div>
             </div>
 
-            <!-- Nurses Row -->
-            <div class="row justify-content-center">
-                <div class="col-md-3">
-                    <div class="team-member scroll-fade">
-                        <div class="member-container">
-                            <img src="assets/images/Alina Anak Jaja.png" alt="Alina" class="img-fluid">
-                            <div class="member-info">
-                                <h5>Alina</h5>
-                                <p>Dental Nurse <i class="fas fa-chevron-down"></i></p>
-                                <p class="speech-text">"Hi, I'm Alina from Padawan. I joined the clinic in 2019 and take pride in providing gentle care to our patients."</p>
-                            </div>
-                        </div>
+            <div id="mag-section" class="team-member-section">
+                <div class="team-member-label">Dr. Magdalene</div>
+                <div class="member-info-box">
+                    <h5>Dr. Magdalene Phang</h5>
+                    <p class="position">Dental Associate</p>
+                    <div class="qualifications">
+                        <p>• BDS, Vinayaka Missions University, India</p>
+                        <p>• MBA, University of Sunderland, UK</p>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="team-member scroll-fade">
-                        <div class="member-container">
-                            <img src="assets/images/Cecilia Anak Dayat.png" alt="Cecilia" class="img-fluid" style="object-position: 70% 35%;">
-                            <div class="member-info">
-                                <h5>Cecilia</h5>
-                                <p>Senior Dental Nurse <i class="fas fa-chevron-down"></i></p>
-                                <p class="speech-text">"I'm Cyl, and I've been part of this amazing team since 2009. My experience helps me provide the best clinical assistance to our doctors."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="team-member scroll-fade">
-                        <div class="member-container">
-                            <img src="assets/images/Jong Ai Jia.png" alt="Ai Jia" class="img-fluid">
-                            <div class="member-info">
-                                <h5>Jong Ai Jia</h5>
-                                <p>Nurse & Administrator <i class="fas fa-chevron-down"></i></p>
-                                <p class="speech-text">"Hello! I'm Ai Jia, and I've been here since 2020. I handle both nursing and administrative duties with efficiency and dedication."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="team-member scroll-fade">
-                        <div class="member-container">
-                            <img src="assets/images/Zarina binti Zamahari.png" alt="Zarina" class="img-fluid" style="object-position: center 30%;">
-                            <div class="member-info">
-                                <h5>Zarina</h5>
-                                <p>Senior Dental Nurse <i class="fas fa-chevron-down"></i></p>
-                                <p class="speech-text">"I'm Ina, bringing smiles and laughter to our surgery since 2010. I believe a good laugh helps our anxious patients feel more at ease!"</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="experience">Dr. Mag graduated as a dental surgeon in 2013 with a Bronze Medal. She further expanded her expertise with an MBA in 2018. Her specialized training in Orthodontics and passion for Airway and Dental Sleep Medicine makes her particularly effective with our junior patients.</p>
+                    <p class="quote">"I love working with our junior patients and helping them achieve their best smile!"</p>
                 </div>
             </div>
-        </section>
-    </div>
 
-    <!-- Team Photo Section -->
-    <section class="pt-5 pb-5 scroll-fade">
-        <h2 class="text-center mb-5">Our Family Photo</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-10" style="max-width: 800px;">
-                <img src="assets/images/team.jpeg" alt="Our Dental Team" class="img-fluid w-100 rounded-4 mobile-no-rounded">
+            <div id="alina-section" class="team-member-section">
+                <div class="team-member-label">Alina</div>
+                <div class="member-info-box">
+                    <h5>Alina</h5>
+                    <p class="position">Dental Nurse</p>
+                    <p>Joined in 2019</p>
+                    <p class="quote">"Hi, I'm Alina from Padawan. I take pride in providing gentle care to our patients."</p>
+                </div>
+            </div>
+
+            <div id="cecilia-section" class="team-member-section">
+                <div class="team-member-label">Cecilia</div>
+                <div class="member-info-box">
+                    <h5>Cecilia</h5>
+                    <p class="position">Senior Dental Nurse</p>
+                    <p>Joined in 2009</p>
+                    <p class="quote">"I'm Cyl, and my experience helps me provide the best clinical assistance to our doctors."</p>
+                </div>
+            </div>
+
+            <div id="aijia-section" class="team-member-section">
+                <div class="team-member-label">Ai Jia</div>
+                <div class="member-info-box">
+                    <h5>Jong Ai Jia</h5>
+                    <p class="position">Nurse & Administrator</p>
+                    <p>Joined in 2020</p>
+                    <p class="quote">"Hello! I handle both nursing and administrative duties with efficiency and dedication."</p>
+                </div>
+            </div>
+
+            <div id="zarina-section" class="team-member-section">
+                <div class="team-member-label">Zarina</div>
+                <div class="member-info-box">
+                    <h5>Zarina</h5>
+                    <p class="position">Senior Dental Nurse</p>
+                    <p>Joined in 2010</p>
+                    <p class="quote">"I'm Ina, bringing smiles and laughter to our surgery since 2010!"</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
-<script>
-    document.querySelectorAll('.show-more-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const memberInfo = this.closest('.member-info');
-            const showMoreContent = memberInfo.querySelector('.show-more-content');
-            const buttonText = this.querySelector('span');
+
+    <script>
+        document.querySelectorAll('.team-member-section').forEach(section => {
+            const label = section.querySelector('.team-member-label');
+            const infoBox = section.querySelector('.member-info-box');
             
-            if (!memberInfo.classList.contains('expanded')) {
-                memberInfo.classList.add('expanded');
-                showMoreContent.classList.add('visible');
-                buttonText.textContent = 'Show less';
-            } else {
-                memberInfo.classList.remove('expanded');
-                showMoreContent.classList.remove('visible');
-                buttonText.textContent = 'Show more';
-            }
-        });
-    });
+            // Function to hide all info boxes and remove active states
+            const hideAllInfoBoxes = () => {
+                document.querySelectorAll('.team-member-section').forEach(s => {
+                    s.classList.remove('active');
+                    const box = s.querySelector('.member-info-box');
+                    box.style.display = 'none';
+                    box.classList.remove('visible');
+                });
+            };
 
-    // Update hover out behavior with null checks
-    document.querySelectorAll('.member-container').forEach(container => {
-        container.addEventListener('mouseleave', function() {
-            const memberInfo = this.querySelector('.member-info');
-            const showMoreContent = memberInfo.querySelector('.show-more-content');
-            const showMoreBtn = memberInfo.querySelector('.show-more-btn');
-            
-            // Only perform these actions if the elements exist
-            if (showMoreContent && showMoreBtn) {
-                memberInfo.classList.remove('expanded');
-                showMoreContent.classList.remove('visible');
-                showMoreBtn.querySelector('span').textContent = 'Show more';
-            }
-        });
-    });
+            // Function to show info box
+            const showInfoBox = () => {
+                section.classList.add('active');
+                infoBox.style.display = 'block';
+                // Force reflow
+                infoBox.offsetHeight;
+                infoBox.classList.add('visible');
+            };
 
-    document.querySelectorAll('.member-info').forEach(info => {
-        info.addEventListener('wheel', function(e) {
-            if (this.classList.contains('expanded')) {
-                const isScrollingPossible = 
-                    (e.deltaY > 0 && this.scrollTop < this.scrollHeight - this.clientHeight) || 
-                    (e.deltaY < 0 && this.scrollTop > 0);
-
-                if (isScrollingPossible) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    this.scrollTop += e.deltaY;
+            // Handle click/touch events
+            const handleInteraction = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const isCurrentlyActive = section.classList.contains('active');
+                hideAllInfoBoxes();
+                
+                if (!isCurrentlyActive) {
+                    showInfoBox();
                 }
+            };
+
+            // Add hover events for desktop
+            if (window.matchMedia('(min-width: 769px)').matches) {
+                section.addEventListener('mouseenter', () => {
+                    hideAllInfoBoxes();
+                    showInfoBox();
+                });
+
+                section.addEventListener('mouseleave', hideAllInfoBoxes);
             }
-        }, { passive: false });
-    });
-</script>
+
+            // Add click/touch events
+            label.addEventListener('click', handleInteraction);
+            label.addEventListener('touchstart', handleInteraction);
+        });
+
+        // Hide info boxes when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.team-member-section')) {
+                document.querySelectorAll('.team-member-section').forEach(section => {
+                    section.classList.remove('active');
+                    const box = section.querySelector('.member-info-box');
+                    box.style.display = 'none';
+                    box.classList.remove('visible');
+                });
+            }
+        });
+    </script>
 </body>
-</html> 
+</html>
