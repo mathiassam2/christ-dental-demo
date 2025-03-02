@@ -12,58 +12,101 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3c687cb8f7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery-item {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .modal-img {
+            max-height: 90vh;
+            width: auto;
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
 
-    <section class="container-fluid px-5 py-5 mt-5 min-vh-100">
+    <section class="container-fluid px-5 pt-5 scroll-fade">
         <div class="container-xxl mx-auto">
-            <div class="text-center mb-5">
-                <p class="text-primary mb-2 fw-bold">OUR GALLERY</p>
-                <h2 class="display-4 fw-bold mb-3">Before & After Photos</h2>
-                <p class="lead mb-3">See the transformative results of our treatments.</p>  <p class="text-muted mb-3"><em>(Educational information and detailed case studies coming soon!)</em></p> </div>
+            <div class="mb-5 position-relative text-center">
+                <div>
+                    <p class="text-primary mb-2 fw-bold">OUR GALLERY</p>
+                    <h3 class="display-4 fw-bold mb-3">Before & After Photos</h3>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <section class="container-fluid px-5 py-5">
+
+    <section class="container-fluid px-5 py-5 scroll-fade">
         <div class="container-xxl mx-auto">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <img src="before1.jpg" alt="Before 1" class="img-fluid rounded shadow">
-                    <p class="mt-2 text-center">Before Treatment</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="after1.jpg" alt="After 1" class="img-fluid rounded shadow">
-                    <p class="mt-2 text-center">After Treatment</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Treatment Details</h5>
-                        <p class="card-text">Information about the specific treatment shown in the before and after photos.</p>
-                      </div>
+            <div class="row g-4">
+                <!-- First Row -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/images/gallery/6.png">
+                        <img src="assets/images/gallery/6.png" alt="Gallery Image 6" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 300px;">
                     </div>
                 </div>
-    
-                <div class="col-md-4 mb-4">
-                    <img src="before2.jpg" alt="Before 2" class="img-fluid rounded shadow">
-                    <p class="mt-2 text-center">Before Treatment</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/images/gallery/7.png">
+                        <img src="assets/images/gallery/7.png" alt="Gallery Image 7" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 300px;">
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <img src="after2.jpg" alt="After 2" class="img-fluid rounded shadow">
-                    <p class="mt-2 text-center">After Treatment</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/images/gallery/8.png">
+                        <img src="assets/images/gallery/8.png" alt="Gallery Image 8" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 300px;">
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Treatment Details</h5>
-                        <p class="card-text">Information about the specific treatment shown in the before and after photos.</p>
-                      </div>
+
+                <!-- Second Row -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/images/gallery/10.png">
+                        <img src="assets/images/gallery/10.png" alt="Gallery Image 10" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 300px;">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/images/gallery/11.png">
+                        <img src="assets/images/gallery/11.png" alt="Gallery Image 11" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 300px;">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/images/gallery/12.png">
+                        <img src="assets/images/gallery/12.png" alt="Gallery Image 12" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 300px;">
+                    </div>
+                </div>
+
+                <!-- Third Row -->
+                <div class="col-md-6 col-lg-4 mx-auto">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/images/gallery/14.png">
+                        <img src="assets/images/gallery/14.png" alt="Gallery Image 14" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 300px;">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mx-auto">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/images/gallery/15.png">
+                        <img src="assets/images/gallery/15.png" alt="Gallery Image 15" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 300px;">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-body p-0 text-center">
+                    <img src="" class="modal-img" alt="Gallery Image">
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
@@ -72,5 +115,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.getAttribute('data-img');
+                document.querySelector('.modal-img').src = imgSrc;
+            });
+        });
+    </script>
 </body>
 </html> 
