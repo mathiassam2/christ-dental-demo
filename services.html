@@ -12,6 +12,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3c687cb8f7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-category {
+            margin-bottom: 5rem;
+        }
+        .service-banner {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-banner::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+        .service-banner h3 {
+            color: white;
+            margin: 0;
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        .service-item {
+            border-radius: 1rem;
+            padding: 1.5rem;
+            height: 100%;
+        }
+        .service-icon-wrap {
+            width: 60px;
+            height: 60px;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        .service-img {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Mobile styles for edge-to-edge */
+        @media (max-width: 767.98px) {
+            .services-section {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            
+            .service-category {
+                margin-left: -12px;
+                margin-right: -12px;
+            }
+            
+            .service-banner {
+                height: 200px;
+                border-radius: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .treatment-fee-content {
+                border-radius: 0 !important;
+                margin-left: -12px;
+                margin-right: -12px;
+            }
+            
+            /* Keep some padding for the text content rows */
+            .service-category .row {
+                margin-left: 0;
+                margin-right: 0;
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
@@ -24,13 +112,16 @@
             
             <!-- Diagnostic Services -->
             <div class="service-category scroll-fade">
-                <h3>Diagnostic Services</h3>
+                <div class="service-banner" style="background-image: url('assets/images/operation room.jpg');">
+                    <h3>Diagnostic Services</h3>
+                </div>
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/consultation.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-comments"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-comments text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Consultation</h4>
                             </div>
@@ -39,9 +130,10 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/xray image.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-x-ray"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-x-ray text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">X-ray Imaging</h4>
                             </div>
@@ -54,9 +146,10 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/xray machine.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-cube"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-cube text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">3D Scanning</h4>
                             </div>
@@ -68,13 +161,16 @@
 
             <!-- Restorative Services -->
             <div class="service-category scroll-fade">
-                <h3>Restorative Services</h3>
+                <div class="service-banner" style="background-image: url('assets/images/restorative.jpg');">
+                    <h3>Restorative Services</h3>
+                </div>
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/tooth filling 2.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-fill-drip"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-fill-drip text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Fillings</h4>
                             </div>
@@ -87,9 +183,10 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/dental crown.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-crown"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-crown text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Crowns & Bridges</h4>
                             </div>
@@ -102,9 +199,10 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/aesthetic treatment.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-magic"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-magic text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Aesthetic Treatment</h4>
                             </div>
@@ -120,13 +218,16 @@
 
             <!-- Specialized Treatments -->
             <div class="service-category scroll-fade">
-                <h3>Specialized Treatments</h3>
+                <div class="service-banner" style="background-image: url('assets/images/specialized treatment.jpg');">
+                    <h3>Specialized Treatments</h3>
+                </div>
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/dentist tools.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-tooth"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-tooth text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Endodontics</h4>
                             </div>
@@ -139,9 +240,10 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/ortho.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-teeth"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-teeth text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Orthodontics</h4>
                             </div>
@@ -155,9 +257,10 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/dental implant 2.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-tools"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-tools text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Implant Dentistry</h4>
                             </div>
@@ -172,13 +275,16 @@
 
             <!-- Additional Services -->
             <div class="service-category scroll-fade">
-                <h3>Additional Services</h3>
+                <div class="service-banner" style="background-image: url('assets/images/additional services.jpg');">
+                    <h3>Additional Services</h3>
+                </div>
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/Charlyn Ngu 2.png');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-baby"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-baby text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Pediatric Dentistry</h4>
                             </div>
@@ -191,9 +297,10 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/dental extraction.png');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-procedures"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-procedures text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Oral Surgery</h4>
                             </div>
@@ -206,9 +313,10 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="service-item shadow-sm">
+                            <div class="service-img" style="background-image: url('assets/images/preventative care.jpg');"></div>
                             <div class="d-flex align-items-center mb-3">
-                                <div class="icon-circle me-3">
-                                    <i class="fas fa-shield-alt"></i>
+                                <div class="service-icon-wrap me-3">
+                                    <i class="fas fa-shield-alt text-primary"></i>
                                 </div>
                                 <h4 class="h5 mb-0">Preventive Care</h4>
                             </div>
@@ -224,9 +332,11 @@
 
             <!-- Treatment Fee -->
             <div class="service-category scroll-fade">
-                <h3>Treatment Fee</h3>
-                <div class="treatment-fee-content">
-                    <p class="lead">We strive to follow the Malaysian Dental Association scale of fees. Patients can request for a quote before any procedure. However, we do not quote a fee through email.</p>
+                <div class="service-banner" style="background-image: url('assets/images/always smile 3.jpeg');">
+                    <h3>Treatment Fee</h3>
+                </div>
+                <div class="treatment-fee-content bg-light p-4 rounded-4">
+                    <p class="lead mb-0">We strive to follow the Malaysian Dental Association scale of fees. Patients can request for a quote before any procedure. However, we do not quote a fee through email.</p>
                 </div>
             </div>
         </div>
