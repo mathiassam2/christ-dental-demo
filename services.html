@@ -14,89 +14,106 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .service-category {
-            margin-bottom: 5rem;
-        }
-        .service-banner {
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 1rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: flex-end;
             position: relative;
-            overflow: hidden;
+            margin-bottom: 4rem;
         }
-        .service-banner::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-        }
-        .service-banner h3 {
-            color: white;
-            margin: 0;
-            padding: 1.5rem;
-            position: relative;
-            z-index: 1;
-            width: 100%;
-        }
-        .service-item {
-            border-radius: 1rem;
-            padding: 1.5rem;
-            height: 100%;
-        }
-        .service-icon-wrap {
-            width: 60px;
-            height: 60px;
-            background-color: #f8f9fa;
-            border-radius: 50%;
+
+        .service-section-layout {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-        }
-        .service-img {
-            height: 160px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 2rem;
+            align-items: flex-start;
         }
         
-        /* Mobile styles for edge-to-edge */
-        @media (max-width: 767.98px) {
-            .services-section {
-                padding-left: 0 !important;
-                padding-right: 0 !important;
+        .video-section {
+            flex: 0 0 35%;
+            position: sticky;
+            top: 90px;
+            align-self: flex-start;
+        }
+        
+        .video-container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+            object-fit: contain;
+        }
+        
+        .cards-section {
+            flex: 0 0 65%;
+            padding-bottom: 2rem;
+            min-height: 900px;
+        }
+        
+        .cards-section .row {
+            flex-direction: column;
+        }
+        
+        .cards-section .col-12 {
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .service-item {
+            margin-bottom: 1rem;
+            overflow: hidden;
+            height: calc(800px / 3 - 1rem);
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .service-img {
+            flex: 0 0 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 0.5rem;
+        }
+        
+        .service-item .content {
+            flex: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-item .content ul {
+            flex: 1;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .service-section-layout {
+                flex-direction: column;
             }
             
-            .service-category {
-                margin-left: -12px;
-                margin-right: -12px;
+            .video-section, .cards-section {
+                flex: 0 0 100%;
+                width: 100%;
             }
             
-            .service-banner {
-                height: 200px;
-                border-radius: 0;
-                margin-bottom: 1rem;
+            .video-section {
+                position: relative;
+                top: 0;
             }
             
-            .treatment-fee-content {
-                border-radius: 0 !important;
-                margin-left: -12px;
-                margin-right: -12px;
+            .video-container {
+                margin-bottom: 2rem;
             }
             
-            /* Keep some padding for the text content rows */
-            .service-category .row {
-                margin-left: 0;
-                margin-right: 0;
-                padding-left: 12px;
-                padding-right: 12px;
+            .service-item {
+                height: auto;
+                flex-direction: column;
+            }
+            
+            .service-img {
+                flex: 0 0 200px;
+                border-radius: 4px 4px 0 0;
             }
         }
     </style>
@@ -112,48 +129,64 @@
             
             <!-- Diagnostic Services -->
             <div class="service-category scroll-fade">
-                <div class="service-banner" style="background-image: url('assets/images/operation room.jpg');">
-                    <h3>Diagnostic Services</h3>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/consultation.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-comments text-primary"></i>
-                                </div>
-                                <h4 class="h5 mb-0">Consultation</h4>
-                            </div>
-                            <p class="text-secondary mb-0">Comprehensive dental examination and treatment planning.</p>
+                <h3 class="mb-4">Diagnostic Services</h3>
+                <div class="service-section-layout">
+                    <div class="video-section">
+                        <div class="video-container">
+                            <video class="rounded-4" autoplay muted loop playsinline>
+                                <source src="assets/videos/diagnostic imaging.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/xray image.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-x-ray text-primary"></i>
+                    <div class="cards-section">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/consultation.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-comments text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">Consultation</h4>
+                                        </div>
+                                        <p class="text-secondary mb-0">Comprehensive dental examination and treatment planning.</p>
+                                    </div>
                                 </div>
-                                <h4 class="h5 mb-0">X-ray Imaging</h4>
                             </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Intraoral Periapical</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Orthopantomogram (OPG)</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Lateral Cephalometric</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/xray machine.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-cube text-primary"></i>
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/xray image.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-x-ray text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">X-ray Imaging</h4>
+                                        </div>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Intraoral Periapical</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Orthopantomogram (OPG)</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Lateral Cephalometric</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <h4 class="h5 mb-0">3D Scanning</h4>
                             </div>
-                            <p class="text-secondary mb-0">Cone Beam Computed Tomography (CBCT) and 3D Intra-oral scanning for detailed 3D imaging.</p>
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/xray machine.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-cube text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">3D Scanning</h4>
+                                        </div>
+                                        <p class="text-secondary mb-0">Cone Beam Computed Tomography (CBCT) and 3D Intra-oral scanning for detailed 3D imaging.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -161,56 +194,72 @@
 
             <!-- Restorative Services -->
             <div class="service-category scroll-fade">
-                <div class="service-banner" style="background-image: url('assets/images/restorative.jpg');">
-                    <h3>Restorative Services</h3>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/tooth filling 2.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-fill-drip text-primary"></i>
-                                </div>
-                                <h4 class="h5 mb-0">Fillings</h4>
-                            </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Composite (tooth-colored)</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Amalgam (removal)</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Glass Ionomer</li>
-                            </ul>
+                <h3 class="mb-4">Restorative Services</h3>
+                <div class="service-section-layout">
+                    <div class="video-section">
+                        <div class="video-container mb-4">
+                            <video class="w-100 rounded-4" autoplay muted loop playsinline>
+                                <source src="assets/videos/restorative-services.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/dental crown.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-crown text-primary"></i>
+                    <div class="cards-section">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/tooth filling 2.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-fill-drip text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">Fillings</h4>
+                                        </div>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Composite (tooth-colored)</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Amalgam (removal)</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Glass Ionomer</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <h4 class="h5 mb-0">Crowns & Bridges</h4>
                             </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Porcelain Crowns</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Zirconia Crowns</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Fixed Bridges</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/aesthetic treatment.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-magic text-primary"></i>
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/dental crown.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-crown text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">Crowns & Bridges</h4>
+                                        </div>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Porcelain Crowns</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Zirconia Crowns</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Fixed Bridges</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <h4 class="h5 mb-0">Aesthetic Treatment</h4>
                             </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Teeth Whitening</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Veneers</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Composite Bonding</li>
-                            </ul>
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/aesthetic treatment.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-magic text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">Aesthetic Treatment</h4>
+                                        </div>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Teeth Whitening</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Veneers</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Composite Bonding</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -218,56 +267,72 @@
 
             <!-- Specialized Treatments -->
             <div class="service-category scroll-fade">
-                <div class="service-banner" style="background-image: url('assets/images/specialized treatment.jpg');">
-                    <h3>Specialized Treatments</h3>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/dentist tools.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-tooth text-primary"></i>
-                                </div>
-                                <h4 class="h5 mb-0">Endodontics</h4>
-                            </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Microscope assisted Root Canal Treatment</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Pulpotomy</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Vital Pulp Therapy</li>
-                            </ul>
+                <h3 class="mb-4">Specialized Treatments</h3>
+                <div class="service-section-layout">
+                    <div class="video-section">
+                        <div class="video-container mb-4">
+                            <video class="w-100 rounded-4" autoplay muted loop playsinline>
+                                <source src="assets/videos/microsope assisted.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/ortho.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-teeth text-primary"></i>
+                    <div class="cards-section">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/dentist tools.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-tooth text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">Endodontics</h4>
+                                        </div>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Microscope assisted Root Canal Treatment</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Pulpotomy</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Vital Pulp Therapy</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <h4 class="h5 mb-0">Orthodontics</h4>
                             </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Traditional Braces</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Ceramic Braces</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Clear Aligners</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Functional Appliances</li> 
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/dental implant 2.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-tools text-primary"></i>
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/ortho.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-teeth text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">Orthodontics</h4>
+                                        </div>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Traditional Braces</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Ceramic Braces</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Clear Aligners</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Functional Appliances</li> 
+                                        </ul>
+                                    </div>
                                 </div>
-                                <h4 class="h5 mb-0">Implant Dentistry</h4>
                             </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Single and multiple Implants</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Implant Supported Prosthesis e.g. bridge/denture</li>
-                            </ul>
+                            <div class="col-12">
+                                <div class="service-item shadow-sm">
+                                    <div class="service-img" style="background-image: url('assets/images/dental implant 2.jpg');"></div>
+                                    <div class="content">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="service-icon-wrap me-3">
+                                                <i class="fas fa-tools text-primary"></i>
+                                            </div>
+                                            <h4 class="h5 mb-0">Implant Dentistry</h4>
+                                        </div>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Single and multiple Implants</li>
+                                            <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Implant Supported Prosthesis e.g. bridge/denture</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -275,56 +340,60 @@
 
             <!-- Additional Services -->
             <div class="service-category scroll-fade">
-                <div class="service-banner" style="background-image: url('assets/images/additional services.jpg');">
-                    <h3>Additional Services</h3>
-                </div>
+                <h3 class="mb-4">Additional Services</h3>
                 <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/Charlyn Ngu 2.png');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-baby text-primary"></i>
+                    <div class="col-md-4">
+                        <div class="service-item shadow-sm" style="height: auto; flex-direction: column;">
+                            <div class="service-img" style="background-image: url('assets/images/Charlyn Ngu 2.png'); height: 200px; width: 100%;"></div>
+                            <div class="content" style="padding: 1.5rem;">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="service-icon-wrap me-3">
+                                        <i class="fas fa-baby text-primary"></i>
+                                    </div>
+                                    <h4 class="h5 mb-0">Pediatric Dentistry</h4>
                                 </div>
-                                <h4 class="h5 mb-0">Pediatric Dentistry</h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Child Dental Check-ups</li>
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Fissure Ssalants</li>
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Paediatric Crowns</li>
+                                </ul>
                             </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Child Dental Check-ups</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Fissure Ssalants</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Paediatric Crowns</li>
-                            </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/dental extraction.png');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-procedures text-primary"></i>
+                    <div class="col-md-4">
+                        <div class="service-item shadow-sm" style="height: auto; flex-direction: column;">
+                            <div class="service-img" style="background-image: url('assets/images/dental extraction.png'); height: 200px; width: 100%;"></div>
+                            <div class="content" style="padding: 1.5rem;">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="service-icon-wrap me-3">
+                                        <i class="fas fa-procedures text-primary"></i>
+                                    </div>
+                                    <h4 class="h5 mb-0">Oral Surgery</h4>
                                 </div>
-                                <h4 class="h5 mb-0">Oral Surgery</h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Tooth Extraction</li>
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Wisdom Teeth Removal</li>
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Minor Oral Surgery</li>
+                                </ul>
                             </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Tooth Extraction</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Wisdom Teeth Removal</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Minor Oral Surgery</li>
-                            </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service-item shadow-sm">
-                            <div class="service-img" style="background-image: url('assets/images/preventative care.jpg');"></div>
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="service-icon-wrap me-3">
-                                    <i class="fas fa-shield-alt text-primary"></i>
+                    <div class="col-md-4">
+                        <div class="service-item shadow-sm" style="height: auto; flex-direction: column;">
+                            <div class="service-img" style="background-image: url('assets/images/preventative care.jpg'); height: 200px; width: 100%;"></div>
+                            <div class="content" style="padding: 1.5rem;">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="service-icon-wrap me-3">
+                                        <i class="fas fa-shield-alt text-primary"></i>
+                                    </div>
+                                    <h4 class="h5 mb-0">Preventive Care</h4>
                                 </div>
-                                <h4 class="h5 mb-0">Preventive Care</h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Regular Check-ups</li>
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Professional Cleaning</li>
+                                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Fluoride Treatment</li>
+                                </ul>
                             </div>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Regular Check-ups</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Professional Cleaning</li>
-                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>Fluoride Treatment</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -332,11 +401,9 @@
 
             <!-- Treatment Fee -->
             <div class="service-category scroll-fade">
-                <div class="service-banner" style="background-image: url('assets/images/always smile 3.jpeg');">
-                    <h3>Treatment Fee</h3>
-                </div>
-                <div class="treatment-fee-content bg-light p-4 rounded-4">
-                    <p class="lead mb-0">We strive to follow the Malaysian Dental Association scale of fees. Patients can request for a quote before any procedure. However, we do not quote a fee through email.</p>
+                <h3 class="mb-4">Treatment Fee</h3>
+                <div class="treatment-fee-content">
+                    <p class="lead mb-0">Kindly contact us for an estimated fee.</p>
                 </div>
             </div>
         </div>

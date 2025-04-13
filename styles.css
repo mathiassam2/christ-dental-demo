@@ -3,6 +3,13 @@ body {
     font-family: 'Roboto', sans-serif;
     padding-top: 76px; /* Adjust this value based on your navbar height */
     opacity: 1;
+    background-color: #FBFAFF; /* Very light lavender base */
+    background-image: 
+        radial-gradient(#E6E0F4 1px, transparent 1px), 
+        radial-gradient(#E6E0F4 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    background-attachment: fixed;
 }
 
 html {
@@ -31,11 +38,11 @@ body {
 }
 
 .nav-link.active {
-    color: #ffb5b9 !important;
+    color: #B19CD9 !important;
 }
 
 .nav-link:hover {
-    color: #ffb5b9 !important;
+    color: #B19CD9 !important;
 }
 
 .navbar-nav .nav-link {
@@ -49,7 +56,7 @@ body {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ffb5b9;
+    background-color: #B19CD9;
     transition: width 0.3s ease-in-out;
 }
 
@@ -176,7 +183,9 @@ body {
 /* Card Styles */
 .card {
     transition: transform 0.3s ease;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     height: 100%;
 }
 
@@ -214,9 +223,9 @@ body {
 } */
 
 /* Update background color for services page */
-section.services-section {
+/* section.services-section {
     background-color: white !important;
-}
+} */
 
 /* Table Styles */
 .table {
@@ -310,6 +319,9 @@ section.services-section {
     right: 0;
     z-index: 1000;
     transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 /* Treatment Fee Styles */
@@ -367,14 +379,15 @@ section.services-section {
 }
 
 .background-shape {
-    background-color: rgba(var(--bs-primary-rgb), 0.1);
-    width: 300px;
-    height: 300px;
     position: absolute;
-    border-radius: 50%;
-    top: -20px;
-    right: -20px;
-    z-index: 0;
+    width: 80%;
+    height: 80%;
+    background: #F3F0FF;
+    border-radius: 1rem;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: floatShape1 6s ease-in-out infinite;
 }
 
 .testimonial-pill {
@@ -426,16 +439,16 @@ section.services-section {
 }
 
 .schedule-btn {
-    background-color: #ffb5b9;
+    background-color: #b19cd9;
     color: #333333;
-    border: 2px solid #ffb5b9;
+    border: 2px solid #b19cd9;
     transition: all 0.3s ease;
 }
 
 .schedule-btn:hover {
     background-color: transparent;
-    color: #ffb5b9;
-    border: 2px solid #ffb5b9;
+    color: #b19cd9;
+    border: 2px solid #b19cd9;
 }
 
 /* Hero Image Styles */
@@ -716,7 +729,7 @@ section.services-section {
 
 /* Update text colors to match your scheme */
 .text-primary {
-    color: #ffb5b9 !important;
+    color: #b19cd9 !important;
 }
 
 .text-secondary {
@@ -961,7 +974,7 @@ section.services-section {
 }
 
 .team-member-card {
-    background: white;
+    /* background: white; */
     border-radius: 1rem;
     padding: 3rem;
 }
@@ -977,7 +990,7 @@ section.services-section {
     position: absolute;
     width: 80%;
     height: 80%;
-    background: #fff0f1;
+    background: #F3F0FF;
     border-radius: 1rem;
     top: 0;
     left: 0;
@@ -989,7 +1002,7 @@ section.services-section {
     position: absolute;
     width: 80%;
     height: 80%;
-    background: rgba(255, 181, 185, 0.3);
+    background: rgba(213, 200, 237, 0.3);
     border-radius: 1rem;
     bottom: 0;
     right: 0;
@@ -1061,7 +1074,7 @@ section.services-section {
 
 .assistant-profile {
     padding: 1.5rem;
-    background: #fff0f1;
+    background: #F3F0FF;
     border-radius: 0.75rem;
     margin-bottom: 1.5rem;
 }
@@ -1468,4 +1481,9 @@ body {
         width: 100%;
         position: relative;
     }
+}
+
+/* Update sections with colored backgrounds */
+section[style*="background-color: #F3F0FF"] {
+    background-color: rgba(243, 240, 255, 0.7) !important;
 }

@@ -27,13 +27,13 @@
                 </path> -->
                 
                 <path class="squiggle-path" d="M0,60 Q25,45 50,55 Q75,65 100,20" 
-                      stroke="#ffe0e3" stroke-width="2" fill="none" 
+                      stroke="#D5C8ED" stroke-width="2" fill="none" 
                       stroke-dasharray="200" stroke-dashoffset="200">
                     <animate attributeName="stroke-dashoffset" from="200" to="0" dur="1.7s" begin="0s" fill="freeze" />
                 </path>
                 
                 <path class="squiggle-path" d="M0,40 Q25,55 50,35 Q75,15 100,10" 
-                      stroke="#ffe0e3" stroke-width="2" fill="none" 
+                      stroke="#D5C8ED" stroke-width="2" fill="none" 
                       stroke-dasharray="200" stroke-dashoffset="200">
                     <animate attributeName="stroke-dashoffset" from="200" to="0" dur="1.5s" begin="0.3s" fill="freeze" />
                 </path>
@@ -43,15 +43,22 @@
         <div class="container-xxl mx-auto pt-5">
             <div class="row align-items-center">
                 <!-- Text Column -->
-                <div class="col-12 col-lg-6 d-flex flex-column">
+                <div class="col-12 col-lg-auto d-flex flex-column" style="width: 100%;">
+                    <style>
+                        @media (min-width: 992px) {
+                            .col-12.col-lg-auto {
+                                width: 45% !important;
+                            }
+                        }
+                    </style>
                     <div class="mb-4 animate-down">
-                        <h1 class="display-2 fw-bold mb-2">
-                            <span style="color: #ffa2a6;">Dr Christina's Dental Clinic</span><br>
-                            We Value Your Smile <span class="text-primary">✨</span>
-                        </h1>
-                        <!-- <p class="text-secondary fw-bold">
-                            Dr Christina Dental Clinic - Professional dental care for your whole family's healthy smiles.
-                        </p> -->
+                        <div class="d-flex align-items-center">
+                            <h1 class="display-2 fw-bold mb-0" style="color: #000000;">Dr Christina's Dental Clinic</h1>
+                            <img src="assets/logo/Logo3.png" alt="Logo" class="clinic-logo" style="width: auto; object-fit: contain; margin-left: 10px;">
+                        </div>
+                        <h2 class="display-5 fw-normal mb-0 fst-italic" style="color: #B19CD9;">
+                            We Value Your Smile
+                        </h2>
                     </div>
                     
                     <div class="d-flex flex-column gap-4 animate-up delay-1">
@@ -157,9 +164,9 @@
         <div class="container-xxl mx-auto">
             <div class="mb-5 position-relative text-center">
                 <div>
-                    <p class="text-primary mb-2 fw-bold">VIRTUAL TOUR</p>
+                    <!-- <p class="text-primary mb-2 fw-bold">VIRTUAL TOUR</p> -->
                     <h3 class="display-4 fw-bold mb-3">Experience our clinic virtually</h3>
-                    <p class="text-secondary">Take a virtual walk through our dental facility</p>
+                    <!-- <p class="text-secondary">Take a virtual walk through our dental facility</p> -->
                 </div>
             </div>
             
@@ -185,12 +192,12 @@
         </iframe>
     </div>
 
-    <section id="services" class="container-fluid px-5 py-5 min-vh-100" style="background-color: #fff0f1;">
+    <section id="services" class="container-fluid px-5 py-5 min-vh-100" style="background-color: #F3F0FF;">
         <div class="container-xxl mx-auto">
             <div class="mb-5 position-relative text-center">
                 <div>
-                    <p class="text-primary mb-2 fw-bold">OUR SERVICES</p>
                     <h3 class="display-4 fw-bold mb-0">We specialize in your smile</h3>
+                    <p class="text-primary m-2 fw-bold">OUR SERVICES</p>
                 </div>
             </div>
             
@@ -199,7 +206,7 @@
                 <!-- Dental Exams -->
                 <div class="col-md-4 scroll-fade">
                     <div class="service-card d-flex flex-column p-4" style="background-color: white; border-radius: 16px;">
-                        <span class="badge fw-bold mb-2" style="background-color: #FFB6C1; color: white; width: fit-content; padding: 8px 16px; border-radius: 20px;">Cosmetic</span>
+                        <span class="badge fw-bold mb-2" style="background-color: #B19CD9; color: white; width: fit-content; padding: 8px 16px; border-radius: 20px;">Cosmetic</span>
                         <h3 class="h4 text-primary mb-2">Beautiful Smiles</h3>
                         <p class="text-secondary mb-4">Transform your smile with our comprehensive cosmetic dental treatments.</p>
                         <div class="service-image-container m-1">
@@ -211,7 +218,7 @@
                 <!-- Teeth Cleaning -->
                 <div class="col-md-4 scroll-fade">
                     <div class="service-card d-flex flex-column p-4" style="background-color: white; border-radius: 16px;">
-                        <span class="badge fw-bold mb-2" style="background-color: #FFB6C1; color: white; width: fit-content; padding: 8px 16px; border-radius: 20px;">Preventive</span>
+                        <span class="badge fw-bold mb-2" style="background-color: #B19CD9; color: white; width: fit-content; padding: 8px 16px; border-radius: 20px;">Preventive</span>
                         <h3 class="h4 text-primary mb-2">Teeth Cleaning & Repair</h3>
                         <p class="text-secondary mb-4">Professional cleaning to prevent cavities and maintain oral health.</p>
                         <div class="service-image-container m-1">
@@ -223,7 +230,7 @@
                 <!-- Child Dentistry -->
                 <div class="col-md-4 scroll-fade">
                     <div class="service-card d-flex flex-column p-4" style="background-color: white; border-radius: 16px;">
-                        <span class="badge fw-bold mb-2" style="background-color: #FFB6C1; color: white; width: fit-content; padding: 8px 16px; border-radius: 20px;">Pediatric</span>
+                        <span class="badge fw-bold mb-2" style="background-color: #B19CD9; color: white; width: fit-content; padding: 8px 16px; border-radius: 20px;">Pediatric</span>
                         <h3 class="h4 text-primary mb-2">Child-Friendly Dentistry</h3>
                         <p class="text-secondary mb-4">Gentle and caring dental treatment specially designed for young patients.</p>
                         <div class="service-image-container m-1">
@@ -247,8 +254,7 @@
         <div class="container-xxl mx-auto">
             <div class="mb-5 position-relative">
                 <div>
-                    <p class="text-primary mb-2 fw-bold">OUR TEAM</p>
-                    <h2 class="display-4 fw-bold mb-0">Meet our team</h2>
+                    <h2 class="display-4 fw-bold mb-0">Our Team</h2>
                 </div>
             </div>
             
@@ -277,7 +283,7 @@
         </div>
     </section>
 
-    <section id="testimonials" class="container-fluid px-5 py-5 min-vh-100" style="background-color: #fff0f1;">
+    <section id="testimonials" class="container-fluid px-5 py-5 min-vh-100" style="background-color: #F3F0FF;">
         <div class="container-xxl mx-auto">
             <div class="mb-5 position-relative">
                 <div>
@@ -294,10 +300,9 @@
 
     <section id="policy" class="container-fluid px-5 py-5 min-vh-100">
         <div class="container-xxl mx-auto">
-            <div class="mb-5">
+            <div class="mb-5 position-relative">
                 <div>
-                    <p class="text-primary mb-2 fw-bold">OUR POLICY</p>
-                    <h2 class="display-4 fw-bold mb-0">Committed to your care, <span class="d-none d-md-inline"><br></span>transparent in our practice</h2>
+                    <h2 class="display-4 fw-bold mb-0">Our Policy</h2>
                 </div>
             </div>
 
@@ -366,7 +371,7 @@
         </div>
     </section>
 
-    <section id="location" class="container-fluid px-5 py-5 min-vh-100" style="background-color: #fff0f1;">
+    <section id="location" class="container-fluid px-5 py-5 min-vh-100" style="background-color: #F3F0FF;">
         <div class="container-xxl mx-auto">
             <div class="mb-5 position-relative">
                 <div>
@@ -528,18 +533,28 @@
     }
 
     .squiggle-path {
-        opacity: 0.4;
+        opacity: 0.3;
     }
 
     @keyframes highlight-pulse {
-        0% { box-shadow: 0 0 0 0 rgba(255, 130, 135, 0.7); transform: scale(1); }
-        50% { box-shadow: 0 0 0 10px rgba(255, 130, 135, 0); transform: scale(1.05); }
-        100% { box-shadow: 0 0 0 0 rgba(255, 130, 135, 0); transform: scale(1); }
+        0% { box-shadow: 0 0 0 0 rgba(177, 156, 217, 0.7); transform: scale(1); }
+        50% { box-shadow: 0 0 0 10px rgba(177, 156, 217, 0); transform: scale(1.05); }
+        100% { box-shadow: 0 0 0 0 rgba(177, 156, 217, 0); transform: scale(1); }
     }
     
     .highlight-button {
         animation: highlight-pulse 1.5s ease-in-out 3;
         animation-delay: 1s;
+    }
+
+    .clinic-logo {
+        height: 10em;
+    }
+    
+    @media (max-width: 768px) {
+        .clinic-logo {
+            height: 7em;
+        }
     }
     </style>
 </body>

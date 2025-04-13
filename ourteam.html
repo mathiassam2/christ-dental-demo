@@ -54,6 +54,7 @@
             border: 2px solid #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             display: inline-block;
+            font-style: italic;
         }
 
         .team-member-label:hover {
@@ -63,9 +64,9 @@
         }
 
         .team-member-section.active .team-member-label {
-            background-color: #ffb5b9;
+            background-color: #B19CD9;
             color: black;
-            border-color: #f3a1a5;
+            border-color: rgba(213, 200, 237, 0.8);
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
@@ -123,13 +124,13 @@
                 content: '';
                 width: 12px;
                 height: 12px;
-                background-color: #ffb5b9;
+                background-color: #B19CD9;
                 border-radius: 50%;
                 transition: all 0.3s ease;
             }
 
             .team-member-section.active .team-member-label::after {
-                background-color: #f3a1a5;
+                background-color: rgba(213, 200, 237, 0.8);
                 transform: scale(1.2);
             }
 
@@ -201,13 +202,13 @@
         }
 
         .member-info-box .position {
-            color: #ff8087;
+            color: #B19CD9;
             font-weight: 500;
             margin-bottom: 8px;
         }
 
         .member-info-box .qualifications {
-            background-color: rgba(255, 181, 185, 0.4);
+            background-color: rgba(213, 200, 237, 0.2);
             padding: 8px 12px;
             border-radius: 6px;
             margin-bottom: 10px;
@@ -239,7 +240,7 @@
     <div id="navbar-placeholder"></div>
 
     <div class="container py-5">
-        <h2 class="text-center mb-5">Our Clinic Family</h2>
+        <h1 class="display-4 fw-bold mb-5 scroll-fade fade-in text-center">Our Clinic Family</h1>
         
         <div class="team-photo-container">
             <img src="assets/images/team.jpeg" alt="Our Dental Team" class="team-photo">
@@ -280,7 +281,7 @@
                     <h5>Alina</h5>
                     <p class="position">Dental Nurse</p>
                     <p>Joined in 2019</p>
-                    <p class="quote">"Hi, I'm Alina from Padawan. I take pride in providing gentle care to our patients."</p>
+                    <p class="quote">"Hi, I'm Alina. I take pride in providing gentle care to our patients."</p>
                 </div>
             </div>
 
