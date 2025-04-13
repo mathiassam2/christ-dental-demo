@@ -124,9 +124,9 @@ body {
 }
 
 .mobile-schedule-btn {
-    background-color: #ffb5b9;
+    background-color: #B19CD9;
     color: #333333;
-    border: 2px solid #ffb5b9;
+    border: 2px solid #B19CD9;
     transition: all 0.3s ease;
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
@@ -135,8 +135,8 @@ body {
 
 .mobile-schedule-btn:hover {
     background-color: transparent;
-    color: #ffb5b9;
-    border: 2px solid #ffb5b9;
+    color: #B19CD9;
+    border: 2px solid #B19CD9;
     text-decoration: none;
 }
 
