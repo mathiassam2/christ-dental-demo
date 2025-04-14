@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="styles.css">
         <style>
             .policy-section {
-                padding: 4rem 0;
+                padding: 2rem 0;
             }
         
             .policy-card {
@@ -106,6 +106,16 @@
                 .timeline-item {
                     border-left-width: 1px; /* Adjust the thickness of the line */
                 }
+                
+                /* Additional spacing for stacked cards on mobile */
+                .policy-card {
+                    margin-bottom: 1.5rem;
+                }
+                
+                /* Reset margin for last card in a section */
+                .policy-section > div:last-child .policy-card {
+                    margin-bottom: 0;
+                }
             }
         </style>
     </head>
@@ -163,10 +173,10 @@
 
         <!-- Billing and Payment -->
         <div class="policy-section scroll-fade">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row g-5">
+                <div class="col-md-6 mb-4 mb-md-0">
                     <h2 class="h3 mb-4"><i class="fas fa-credit-card me-3"></i>Payment Methods</h2>
-                    <div class="policy-card h-100">
+                    <div class="policy-card">
                         <ul class="policy-list">
                             <li><i class="fas fa-money-bill-wave"></i>Cash</li>
                             <li><i class="fas fa-credit-card"></i>Debit/Credit Cards</li>
@@ -178,7 +188,7 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="h3 mb-4"><i class="fas fa-file-invoice me-3"></i>Billing Policies</h2>
-                    <div class="policy-card h-100">
+                    <div class="policy-card">
                         <ul class="policy-list">
                             <li><i class="fas fa-info-circle"></i>Treatment costs recorded in clinic management software</li>
                             <li><i class="fas fa-receipt"></i>Detailed billing statements available upon request</li>
@@ -191,7 +201,7 @@
 
         <!-- Treatment Guarantees -->
         <div class="policy-section scroll-fade">
-            <h2 class="h3 mb-4"><i class="fas fa-shield-alt me-3"></i>Treatment Guarantees</h2>
+            <h2 class="h3 mb-4 mt-4"><i class="fas fa-shield-alt me-3"></i>Treatment Guarantees</h2>
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="policy-card">
