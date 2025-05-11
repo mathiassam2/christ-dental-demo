@@ -695,6 +695,35 @@
                 }
             }
         }
+        
+        /* Additional styles for Learn More button */
+        .learn-more-btn {
+            color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+            display: inline-block;
+            font-size: 0.9rem;
+            vertical-align: middle;
+        }
+        
+        .learn-more-btn:hover {
+            border-color: #D4C4E9;
+            color: #D4C4E9;
+            background-color: rgba(177, 156, 217, 0.2);
+        }
+        
+        /* Mobile adjustments for button */
+        @media (max-width: 768px) {
+            .learn-more-btn {
+                font-size: 0.9rem;
+                padding: 0.4rem 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -803,7 +832,7 @@
         <div class="section-transition-bottom"></div>
         <div class="content-container">
             <h2 class="section-title">Restorative Services</h2>
-            <p class="section-subtitle">Rejuvenate your smile with our comprehensive range of restorative treatments.</p>
+            <p class="section-subtitle">Rejuvenate your smile with our comprehensive range of restorative treatments. <a href="gallery.html" class="btn learn-more-btn">Learn More</a></p>
         </div>
         
         <div class="services-bottom-container">
