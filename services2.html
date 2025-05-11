@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Dr Christina's Dental Clinic</title>
+    <!-- Multiple favicon formats -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/logotab.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/logotab.png">
+    <link rel="apple-touch-icon" href="assets/logo/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3c687cb8f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modern Services Page Styling */
+        body {
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .full-page-section {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        
+        .content-container {
+            width: 100%;
+            max-width: 1400px;
+            padding: 120px 2rem 0;
+            color: white;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .light-section .content-container {
+            color: #333;
+        }
+        
+        .section-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            max-width: 800px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+        }
+        
+        /* Bottom Services Layout */
+        .services-bottom-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5), transparent);
+            padding: 7rem 2rem 3rem;
+            z-index: 1;
+        }
+        
+        .services-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1400px;
+            padding: 0 2rem;
+            gap: 1.5rem;
+        }
+        
+        .service-item {
+            flex: 1;
+            text-align: center;
+            padding: 0 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            background-color: transparent;
+            border: none;
+        }
+        
+        .service-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .service-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .service-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #B19CD9;
+            margin-bottom: 1rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        
+        .service-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0;
+            display: inline-block;
+            text-align: left;
+        }
+        
+        .service-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+        
+        .service-list li:before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #B19CD9;
+            border-radius: 50%;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-7px) translateX(-50%);
+            }
+        }
+        
+        .light-section {
+            background-color: #f8f9fa;
+        }
+        
+        .light-section .scroll-down {
+            color: #333;
+        }
+        
+        .reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* Mobile Service Carousel */
+        .service-carousel {
+            display: none;
+        }
+        
+        .carousel-control-prev, .carousel-control-next {
+            width: 15%;
+            opacity: 0.8;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+        
+        .carousel-control-prev:hover, .carousel-control-next:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .carousel-indicators {
+            display: none;
+        }
+        
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            width: 30px;
+            height: 30px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 3.5rem;
+            }
+            
+            .services-row {
+                flex-wrap: wrap;
+            }
+            
+            .service-item {
+                flex: 0 0 calc(50% - 1.5rem);
+                margin-bottom: 2rem;
+            }
+        }
+        
+        /* Section transition overlays */
+        .section-transition-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), transparent);
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .section-transition-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), transparent);
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .full-page-section {
+            position: relative;
+            z-index: 1;
+            border-top: none;
+            border-bottom: none;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        /* First section needs special treatment */
+        .full-page-section:first-of-type {
+            margin-top: 0;
+            border-top: none;
+        }
+        
+        /* Last section before the light section needs special treatment */
+        .full-page-section:nth-last-of-type(2) {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+        
+        /* Light section (fee section) needs different handling */
+        .light-section {
+            border-top: none;
+            margin-top: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 80px 1.5rem 0;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            /* Hide the regular services row on mobile */
+            .services-row {
+                display: none;
+            }
+            
+            /* Show the carousel instead */
+            .service-carousel {
+                display: block;
+                width: 100%;
+            }
+            
+            .services-bottom-container {
+                padding: 7rem 1rem 4rem;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), transparent);
+            }
+            
+            .service-item {
+                flex: none;
+                max-width: 100%;
+                margin-bottom: 0;
+                padding: 0 1rem;
+            }
+            
+            .carousel-item .service-item {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Treatment Fee Section */
+        .fee-card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .fee-card h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        
+        .fee-card p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        /* Modal Styling */
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 12px;
+        }
+        
+        .modal-header {
+            border-bottom: none;
+        }
+        
+        .modal-footer {
+            border-top: none;
+        }
+        
+        .btn-close {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 0.8rem;
+        }
+        
+        /* Special case for the hero section to keep it centered */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-section .content-container {
+            padding-top: 0;
+        }
+        
+        .light-section .content-container {
+            color: #333;
+        }
+        
+        /* Additional styles for the redesigned Additional Services section */
+        .additional-services-section {
+            background: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+            margin-top: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-box {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-color: rgba(177, 156, 217, 0.3);
+        }
+        
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+            background: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-box .service-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #B19CD9;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        
+        .service-box .service-title {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .service-box .service-list {
+            color: #333;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .service-box .service-list li {
+            color: #333;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .service-box .service-list li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: #B19CD9;
+            border-radius: 50%;
+        }
+        
+        /* Mobile service boxes */
+        .mobile-service-grid {
+            display: none;
+        }
+        
+        @media (max-width: 992px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-grid {
+                display: none;
+            }
+            
+            .additional-services-section .content-container {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            
+            .additional-services-section h2.section-title,
+            .additional-services-section p.section-subtitle,
+            .additional-services-section .fee-notice {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .mobile-service-grid {
+                display: block;
+                margin-top: 2rem;
+                margin-bottom: 3rem;
+                width: 100%;
+            }
+            
+            .mobile-service-grid .service-box {
+                max-width: 100%;
+                margin: 0 0 2.5rem 0;
+                box-shadow: none;
+                background: transparent;
+                border-radius: 0;
+                position: relative;
+            }
+            
+            .mobile-service-grid .service-image {
+                height: 220px;
+                width: 100%;
+                position: relative;
+                border-radius: 0;
+                background-position: center;
+                background-size: cover;
+            }
+            
+            .mobile-service-grid .service-content {
+                padding: 2rem 1rem 1rem 1rem;
+                background: transparent;
+            }
+            
+            .mobile-service-grid .service-icon {
+                position: absolute;
+                right: 1rem;
+                top: 180px; /* Position the icon at the bottom of the image */
+                width: 60px;
+                height: 60px;
+                z-index: 5; /* Ensure it's above the image overlay */
+            }
+        }
+        
+        .additional-services-section .service-box .service-list {
+            color: #333;
+        }
+        
+        .additional-services-section .service-box .service-list li {
+            color: #333;
+        }
+        
+        /* Additional styles for making the list more visible */
+        .additional-services-section .service-box .service-content ul.service-list li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+            list-style-type: none;
+        }
+        
+        /* Additional styles for the fee notice in Additional Services section */
+        .fee-notice {
+            text-align: left;
+            max-width: 600px;
+            margin: 3rem 0 0;
+            padding: 0;
+        }
+        
+        .fee-notice h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+        
+        .fee-notice p {
+            color: #555;
+            margin-bottom: 0;
+        }
+        
+        /* Add pulsate animation */
+        @keyframes pulsate {
+            0% {
+                box-shadow: 0 0 0 0 rgba(177, 156, 217, 0.7);
+                transform: scale(1);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(177, 156, 217, 0);
+                transform: scale(1.03);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(177, 156, 217, 0);
+                transform: scale(1);
+            }
+        }
+        
+        .clickable-service {
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .clickable-service::after {
+            content: "Click to view";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .clickable-service:hover::after {
+            opacity: 1;
+        }
+        
+        .pulsate-service {
+            animation: pulsate 2s infinite;
+        }
+        
+        /* Make sure the carousel allows overflow for animations */
+        .carousel-item {
+            overflow: visible;
+        }
+        
+        /* Adjust the carousel container to allow overflow visibility */
+        .service-carousel {
+            overflow: visible;
+        }
+        
+        /* Ensure carousel inner doesn't clip content */
+        .carousel-inner {
+            overflow: visible;
+        }
+        
+        /* Adjust the mobile service item to have space for the animation */
+        .carousel-item .service-item.pulsate-service {
+            margin: 10px;
+            padding: 10px;
+        }
+        
+        /* Adjust pulsate animation for mobile */
+        @media (max-width: 768px) {
+            .pulsate-service {
+                position: relative;
+                z-index: 10; /* Higher z-index to ensure visibility */
+            }
+            
+            @keyframes pulsate {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(177, 156, 217, 0.7);
+                    transform: scale(1);
+                }
+                70% {
+                    box-shadow: 0 0 0 10px rgba(177, 156, 217, 0);
+                    transform: scale(1.02); /* Slightly smaller scale for mobile */
+                }
+                100% {
+                    box-shadow: 0 0 0 0 rgba(177, 156, 217, 0);
+                    transform: scale(1);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- Diagnostic Services Section -->
+    <section class="full-page-section">
+        <video id="diagnostic-video" class="video-background" autoplay muted loop playsinline>
+            <source src="assets/videos/diagnostic imaging.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="section-transition-bottom"></div>
+        <div class="content-container">
+            <h2 class="section-title">Diagnostic Services</h2>
+            <p class="section-subtitle">State-of-the-art diagnostic tools to accurately assess your dental health.</p>
+        </div>
+        
+        <div class="services-bottom-container">
+            <!-- Desktop and Tablet View -->
+            <div class="services-row">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="service-title">Consultation</h3>
+                    <p class="service-description">Comprehensive dental examination and personalized treatment planning.</p>
+                </div>
+                
+                <div class="service-item clickable-service" id="xray-card">
+                    <div class="service-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <h3 class="service-title">X-ray Imaging</h3>
+                    <ul class="service-list">
+                        <li>Intraoral Periapical</li>
+                        <li>Orthopantomogram (OPG)</li>
+                        <li>Lateral Cephalometric</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item clickable-service pulsate-service" id="3d-scan-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="service-title">3D Scanning</h3>
+                    <p class="service-description">CBCT and 3D Intra-oral scanning for precision treatment planning.</p>
+                </div>
+            </div>
+            
+            <!-- Mobile View Carousel -->
+            <div id="diagnosticServicesCarousel" class="carousel slide service-carousel" data-bs-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="service-item reveal">
+                            <div class="service-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3 class="service-title">Consultation</h3>
+                            <p class="service-description">Comprehensive dental examination and personalized treatment planning.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="service-item reveal clickable-service" id="xray-card-mobile">
+                            <div class="service-icon">
+                                <i class="fas fa-x-ray"></i>
+                            </div>
+                            <h3 class="service-title">X-ray Imaging</h3>
+                            <ul class="service-list">
+                                <li>Intraoral Periapical</li>
+                                <li>Orthopantomogram (OPG)</li>
+                                <li>Lateral Cephalometric</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="service-item reveal clickable-service pulsate-service" id="3d-scan-card-mobile">
+                            <div class="service-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h3 class="service-title">3D Scanning</h3>
+                            <p class="service-description">CBCT and 3D Intra-oral scanning for precision treatment planning.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#diagnosticServicesCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#diagnosticServicesCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restorative Services Section -->
+    <section class="full-page-section">
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="assets/videos/rehab v1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="section-transition-top"></div>
+        <div class="section-transition-bottom"></div>
+        <div class="content-container">
+            <h2 class="section-title">Restorative Services</h2>
+            <p class="section-subtitle">Rejuvenate your smile with our comprehensive range of restorative treatments.</p>
+        </div>
+        
+        <div class="services-bottom-container">
+            <!-- Desktop and Tablet View -->
+            <div class="services-row">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-fill-drip"></i>
+                    </div>
+                    <h3 class="service-title">Fillings</h3>
+                    <ul class="service-list">
+                        <li>Composite (tooth-colored)</li>
+                        <li>Amalgam (removal)</li>
+                        <li>Glass Ionomer</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="service-title">Crowns & Bridges</h3>
+                    <ul class="service-list">
+                        <li>Porcelain Crowns</li>
+                        <li>Zirconia Crowns</li>
+                        <li>Fixed Bridges</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="service-title">Aesthetic Treatment</h3>
+                    <ul class="service-list">
+                        <li>Teeth Whitening</li>
+                        <li>Veneers</li>
+                        <li>Composite Bonding</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mobile View Carousel -->
+            <div id="restorativeServicesCarousel" class="carousel slide service-carousel" data-bs-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="service-item reveal">
+                            <div class="service-icon">
+                                <i class="fas fa-fill-drip"></i>
+                            </div>
+                            <h3 class="service-title">Fillings</h3>
+                            <ul class="service-list">
+                                <li>Composite (tooth-colored)</li>
+                                <li>Amalgam (removal)</li>
+                                <li>Glass Ionomer</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="service-item reveal">
+                            <div class="service-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3 class="service-title">Crowns & Bridges</h3>
+                            <ul class="service-list">
+                                <li>Porcelain Crowns</li>
+                                <li>Zirconia Crowns</li>
+                                <li>Fixed Bridges</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="service-item reveal">
+                            <div class="service-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h3 class="service-title">Aesthetic Treatment</h3>
+                            <ul class="service-list">
+                                <li>Teeth Whitening</li>
+                                <li>Veneers</li>
+                                <li>Composite Bonding</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#restorativeServicesCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#restorativeServicesCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Treatments Section -->
+    <section class="full-page-section">
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="assets/videos/microsope assisted.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <div class="section-transition-top"></div>
+        <div class="content-container">
+            <h2 class="section-title">Specialized Treatments</h2>
+            <p class="section-subtitle">Advanced dental procedures performed with precision and expertise.</p>
+        </div>
+        
+        <div class="services-bottom-container">
+            <!-- Desktop and Tablet View -->
+            <div class="services-row">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3 class="service-title">Endodontics</h3>
+                    <ul class="service-list">
+                        <li>Microscope assisted Root Canal</li>
+                        <li>Pulpotomy</li>
+                        <li>Vital Pulp Therapy</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth"></i>
+                    </div>
+                    <h3 class="service-title">Orthodontics</h3>
+                    <ul class="service-list">
+                        <li>Traditional Braces</li>
+                        <li>Ceramic Braces</li>
+                        <li>Clear Aligners</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Implant Dentistry</h3>
+                    <ul class="service-list">
+                        <li>Single and multiple Implants</li>
+                        <li>Implant Supported Prosthesis</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mobile View Carousel -->
+            <div id="specializedTreatmentsCarousel" class="carousel slide service-carousel" data-bs-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="service-item reveal">
+                            <div class="service-icon">
+                                <i class="fas fa-tooth"></i>
+                            </div>
+                            <h3 class="service-title">Endodontics</h3>
+                            <ul class="service-list">
+                                <li>Microscope assisted Root Canal</li>
+                                <li>Pulpotomy</li>
+                                <li>Vital Pulp Therapy</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="service-item reveal">
+                            <div class="service-icon">
+                                <i class="fas fa-teeth"></i>
+                            </div>
+                            <h3 class="service-title">Orthodontics</h3>
+                            <ul class="service-list">
+                                <li>Traditional Braces</li>
+                                <li>Ceramic Braces</li>
+                                <li>Clear Aligners</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="service-item reveal">
+                            <div class="service-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="service-title">Implant Dentistry</h3>
+                            <ul class="service-list">
+                                <li>Single and multiple Implants</li>
+                                <li>Implant Supported Prosthesis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#specializedTreatmentsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#specializedTreatmentsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section - Redesigned -->
+    <section class="full-page-section additional-services-section">
+        <div class="content-container">
+            <h2 class="section-title" style="color: #333;">Additional Services</h2>
+            <p class="section-subtitle" style="color: #555;">Specialized care for all ages and comprehensive preventive treatments.</p>
+            
+            <!-- Desktop and Tablet View with Images -->
+            <div class="service-grid">
+                <div class="service-box">
+                    <div class="service-image" style="background-image: url('assets/images/Charlyn Ngu 2.png');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Pediatric Dentistry</h3>
+                        <ul class="service-list">
+                            <li>Child Dental Check-ups</li>
+                            <li>Fissure Sealants</li>
+                            <li>Paediatric Crowns</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-image" style="background-image: url('assets/images/dental extraction.png');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Oral Surgery</h3>
+                        <ul class="service-list">
+                            <li>Tooth Extraction</li>
+                            <li>Wisdom Teeth Removal</li>
+                            <li>Minor Oral Surgery</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-image" style="background-image: url('assets/images/preventative care.jpg');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Preventive Care</h3>
+                        <ul class="service-list">
+                            <li>Regular Check-ups</li>
+                            <li>Professional Cleaning</li>
+                            <li>Fluoride Treatment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile View Stacked -->
+            <div class="mobile-service-grid">
+                <div class="service-box">
+                    <div class="service-image" style="background-image: url('assets/images/Charlyn Ngu 2.png');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Pediatric Dentistry</h3>
+                        <ul class="service-list">
+                            <li>Child Dental Check-ups</li>
+                            <li>Fissure Sealants</li>
+                            <li>Paediatric Crowns</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-image" style="background-image: url('assets/images/dental extraction.png');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Oral Surgery</h3>
+                        <ul class="service-list">
+                            <li>Tooth Extraction</li>
+                            <li>Wisdom Teeth Removal</li>
+                            <li>Minor Oral Surgery</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-image" style="background-image: url('assets/images/preventative care.jpg');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Preventive Care</h3>
+                        <ul class="service-list">
+                            <li>Regular Check-ups</li>
+                            <li>Professional Cleaning</li>
+                            <li>Fluoride Treatment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Treatment Fee Notice -->
+            <div class="fee-notice">
+                <h3>Treatment Fee</h3>
+                <p>Kindly contact us for an estimated fee.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- X-ray Machine Modal -->
+    <div class="modal fade" id="xrayMachineModal" tabindex="-1" aria-labelledby="xrayMachineModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="xrayMachineModalLabel">Cone Beam Computed Tomography (CBCT) and 3D Intra-oral scanner</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="assets/images/xray machine full.jpg" alt="X-ray Machine" class="img-fluid rounded" style="max-height: 80vh;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Intersection Observer to handle animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections as they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const section = entry.target;
+                        const title = section.querySelector('.section-title');
+                        const subtitle = section.querySelector('.section-subtitle');
+                        const items = section.querySelectorAll('.service-item');
+                        
+                        if (title) title.classList.add('reveal');
+                        if (subtitle) subtitle.classList.add('reveal');
+                        
+                        items.forEach(item => {
+                            item.classList.add('reveal');
+                        });
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            document.querySelectorAll('.full-page-section').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Initialize all carousels with swipe support and NO auto sliding
+            const carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(carousel => {
+                new bootstrap.Carousel(carousel, {
+                    touch: true,
+                    interval: false // Ensure no auto sliding
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Video switching functionality
+            const diagnosticVideo = document.getElementById('diagnostic-video');
+            const xrayCard = document.getElementById('xray-card');
+            const xrayCardMobile = document.getElementById('xray-card-mobile');
+            const scanCard = document.getElementById('3d-scan-card');
+            const scanCardMobile = document.getElementById('3d-scan-card-mobile');
+            
+            const originalVideoSrc = 'assets/videos/diagnostic imaging.mp4';
+            const scanVideoSrc = 'assets/videos/3d scan.mp4';
+            const scanMobileVideoSrc = 'assets/videos/3d scan mobile.mp4';
+            
+            function switchVideo(videoSrc) {
+                const videoSource = diagnosticVideo.querySelector('source');
+                // Check if it's the 3D scan video and if we're on mobile
+                if (videoSrc === scanVideoSrc && window.innerWidth <= 768) {
+                    videoSrc = scanMobileVideoSrc; // Use mobile version
+                }
+                
+                if (videoSource.src.indexOf(videoSrc) === -1) {
+                    videoSource.src = videoSrc;
+                    diagnosticVideo.load();
+                    diagnosticVideo.play();
+                }
+            }
+            
+            scanCard.addEventListener('click', function() {
+                switchVideo(scanVideoSrc);
+                // Remove pulsate from all cards
+                scanCard.classList.remove('pulsate-service');
+                scanCardMobile.classList.remove('pulsate-service');
+                // Add pulsate to X-ray cards
+                xrayCard.classList.add('pulsate-service');
+                xrayCardMobile.classList.add('pulsate-service');
+            });
+            
+            scanCardMobile.addEventListener('click', function() {
+                switchVideo(scanVideoSrc);
+                // Remove pulsate from all cards
+                scanCard.classList.remove('pulsate-service');
+                scanCardMobile.classList.remove('pulsate-service');
+                // Add pulsate to X-ray cards
+                xrayCard.classList.add('pulsate-service');
+                xrayCardMobile.classList.add('pulsate-service');
+            });
+            
+            xrayCard.addEventListener('click', function() {
+                switchVideo(originalVideoSrc);
+                // Remove pulsate from all cards
+                xrayCard.classList.remove('pulsate-service');
+                xrayCardMobile.classList.remove('pulsate-service');
+                // Add pulsate to 3D scan cards
+                scanCard.classList.add('pulsate-service');
+                scanCardMobile.classList.add('pulsate-service');
+            });
+            
+            xrayCardMobile.addEventListener('click', function() {
+                switchVideo(originalVideoSrc);
+                // Remove pulsate from all cards
+                xrayCard.classList.remove('pulsate-service');
+                xrayCardMobile.classList.remove('pulsate-service');
+                // Add pulsate to 3D scan cards
+                scanCard.classList.add('pulsate-service');
+                scanCardMobile.classList.add('pulsate-service');
+            });
+        });
+    </script>
+</body>
+</html> 
