@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/videos/
+
+# Sitemap location
+Sitemap: https://chris-dental.com/sitemap.xml 
